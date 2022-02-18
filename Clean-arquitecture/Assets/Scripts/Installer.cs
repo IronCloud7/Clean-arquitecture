@@ -17,7 +17,7 @@ namespace Assets.Scripts
             InputPresenter inputPresenter = new InputPresenter(viewModel);
 
             Attacker AttackUseCase = new AttackUseCase(inputPresenter);
-            //Attacker AttackUseCase = new AttackUseCase();
+            Attacker AttackUseCase2 = new AttackUseCase(inputPresenter);
 
             InputController inputController = new InputController(viewModel, AttackUseCase);
             //InputPresenter inputPresenter = new InputPresenter(viewModel, AttackUseCase);
