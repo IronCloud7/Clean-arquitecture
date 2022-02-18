@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - BaseDefender
+          - Clean-arquitecture
         unityVersion:
           - 2020.3.27f1
         targetPlatform:
