@@ -30,8 +30,6 @@ namespace Assets.Scripts
         public void Dispose()
         {
             _viewModel.BotonPulsado.Unsubscribe<ReactiveCommand.Void>(Updated);
-        }
-
-    
+        } 
     }
 }
