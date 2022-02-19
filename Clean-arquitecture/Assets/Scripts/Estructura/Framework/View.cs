@@ -23,7 +23,7 @@ public class View : MonoBehaviour
 
     public void UpdateDamage()
     {
-        _danyo.text += $"Daño: {_modelView.Danyo.Value}";
+        _danyo.text = $"Daño: {_modelView.Danyo.Value}";
     }
 
     private void OnDestroy()
