@@ -8,6 +8,6 @@ namespace Assets.Scripts.Estructura.Interface_Adapter
 {
     public interface UpdaterDamage
     {
-        public void UpdateDamage(InputData inputData);
+        public void UpdateDamage(OutputData outputData);
     }
 }

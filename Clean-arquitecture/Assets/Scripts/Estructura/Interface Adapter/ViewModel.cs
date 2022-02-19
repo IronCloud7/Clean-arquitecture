@@ -1,49 +1,61 @@
-﻿using Patterns.Observer;
+﻿using Assets.Scripts.Utils;
+using Code.Utils;
+using Patterns.Observer;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Scripts
 {
-    public class ViewModel : Subject
+    public class ViewModel// : Subject
     {
-        private bool _botonPulsado = false;
-        private InputData _inputData;
+        private ReactiveCommand _botonPulsado;
+        private ReactiveProperty2<string> _nombre;
+        private ReactiveProperty2<float> _danyo;
 
-        private List<Observer> _observers;
-
-        public bool BotonPulsado { get => _botonPulsado; set => _botonPulsado = value; }
-        public InputData InputData { get => _inputData; set => _inputData = value; }
+        //private bool _botonPulsado = false;
+        //private string _nombre;
+        //private float _danyo;
 
         public ViewModel()
         {
-            _inputData = new InputData("", 0);
-            _observers = new List<Observer>();
+            _botonPulsado = new ReactiveCommand();
+            _nombre = new ReactiveProperty2<string>(default);
+            _danyo = new ReactiveProperty2<float>(default);
         }
 
-        public void UpdateInputData(InputData inputData)
-        {
-            _inputData = inputData;
-        }
+        //private List<Observer> _observers;
 
-        public void Subscribe(Observer observer)
-        {
-            _observers.Add(observer);
-        }
+        public ReactiveCommand BotonPulsado { get => _botonPulsado; set => _botonPulsado = value; }
+        public ReactiveProperty2<string> Nombre { get => _nombre; set => _nombre = value; }
+        public ReactiveProperty2<float> Danyo { get => _danyo; set => _danyo = value; }
 
-        public void Unsubscribe(Observer observer)
-        {
-            _observers.Remove(observer);
-        }
+        //public bool BotonPulsado { get => _botonPulsado; set => _botonPulsado = value; }
+        //public string Nombre { get => _nombre; set => _nombre = value; }
+        //public float Danyo { get => _danyo; set => _danyo = value; }
 
-        public void Notify()
-        {
-            foreach (var observer in _observers)
-            {
-                observer.Updated(this);
-            }
-        }
+
+
+        //public ViewModel()
+        //{
+        //    _observers = new List<Observer>();         
+        //}
+
+        //public void Subscribe(Observer observer)
+        //{
+        //    _observers.Add(observer);
+        //}
+
+        //public void Unsubscribe(Observer observer)
+        //{
+        //    _observers.Remove(observer);
+        //}
+
+        //public void Notify()
+        //{
+        //    foreach (var observer in _observers)
+        //    {
+        //        observer.Updated(this);
+        //    }
+        //}
     }
 }

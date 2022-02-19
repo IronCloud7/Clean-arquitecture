@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Utils;
+using Code.Utils;
+using System;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -15,8 +18,10 @@ namespace Assets.Scripts
         {
             if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
             {
-                _modelView.BotonPulsado = true;
-                _modelView.Notify();
+                _modelView.BotonPulsado.Notify(new ReactiveCommand.Void());
+    
+                //_modelView.BotonPulsado = true;
+                //_modelView.Notify();
             }
         }
     }

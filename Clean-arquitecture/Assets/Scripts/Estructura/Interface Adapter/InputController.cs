@@ -1,4 +1,6 @@
-﻿using Patterns.Observer;
+﻿using Assets.Scripts.Utils;
+using Code.Utils;
+using Patterns.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts
 {
-    public class InputController: IDisposable, Observer
+    public class InputController: IDisposable//, Observer
     {
         private ViewModel _viewModel;
         private Attacker _attackUseCase;
@@ -17,25 +19,19 @@ namespace Assets.Scripts
             _viewModel = viewModel;
             _attackUseCase = attackUseCase;
 
-            _viewModel.Subscribe(this);
+            _viewModel.BotonPulsado.Subscribe<ReactiveCommand.Void>(Updated);
         }
 
-        public void Updated(Subject subject)
+        public void Updated(ReactiveCommand.Void vacio)
         {
-            if (subject is ViewModel viewModel)
-            {
-                if (viewModel.BotonPulsado)
-                {
-                    _attackUseCase.Attack(new InputData("Espada", UnityEngine.Random.Range(5,10)));
-                  
-                    viewModel.BotonPulsado = false;
-                }
-            }
+            _attackUseCase.Attack(new InputData("0"));
         }
-
+ 
         public void Dispose()
         {
-            _viewModel.Unsubscribe(this);
+            _viewModel.BotonPulsado.Unsubscribe<ReactiveCommand.Void>(Updated);
         }
+
+    
     }
 }

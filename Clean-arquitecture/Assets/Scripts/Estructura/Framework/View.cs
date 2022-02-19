@@ -1,6 +1,4 @@
 using Assets.Scripts;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,16 +7,29 @@ public class View : MonoBehaviour
     private ViewModel _modelView;
 
     [SerializeField] private Text _arma;
-    [SerializeField] private Text _damage;
+    [SerializeField] private Text _danyo;
 
     public void Configure(ViewModel modelView)
     {
         _modelView = modelView;
+        _modelView.Nombre.Subscribe(UpdateName);
+        _modelView.Danyo.Subscribe(UpdateDamage);
     }
 
-    public void Update()
+    public void UpdateName()
     {
-        _arma.text = $"arma: {_modelView.InputData.Arma}";
-        _damage.text = $"damage: {_modelView.InputData.Damage.ToString()}";
+        _arma.text = $"Arma: {_modelView.Nombre.Value}";
     }
+
+    public void UpdateDamage()
+    {
+        _danyo.text += $"Daño: {_modelView.Danyo.Value}";
+    }
+
+    private void OnDestroy()
+    {
+        _modelView.Nombre.Unsubscribe(UpdateName);
+        _modelView.Danyo.Unsubscribe(UpdateDamage);
+    }
+
 }

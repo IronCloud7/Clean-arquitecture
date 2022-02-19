@@ -1,17 +1,17 @@
 ﻿namespace Assets.Scripts
 {
-    public class InputData
+    public class OutputData
     {
         private string _arma;
         private float _damage;
 
-        public InputData(string arma, float damage)
+        public OutputData(string arma, float damage)
         {
             _arma = arma;
             _damage = damage;
         }
 
-        public string Arma  => _arma; 
-        public float Damage => _damage;
+        public string Nombre  => _arma; 
+        public float Danyo => _damage;
     }
 }

@@ -8,33 +8,19 @@ using System.Threading.Tasks;
 namespace Assets.Scripts
 {
 
-    class InputPresenter : UpdaterDamage, IDisposable
+    class InputPresenter : UpdaterDamage
     {
         private readonly ViewModel _viewModel;
-        //private readonly Attacker attackUseCase;
-
-        //public InputPresenter(ViewModel viewModel, Attacker attackUseCase)
-        //{
-        //    _viewModel = viewModel;
-
-        //    //attackUseCase.OnDamageUpdated += UpdateDamage;
-        //    //AttackUseCase.OnDamageEvent += UpdateDamage;
-        //    //AttackUseCase.OnDamageAction += UpdateDamage;
-        //}
 
         public InputPresenter(ViewModel viewModel)
         {
             _viewModel = viewModel;
         }
 
-        public void UpdateDamage(InputData inputData)
+        public void UpdateDamage(OutputData outputData)
         {
-            _viewModel.InputData = inputData;
-        }
-
-        public void Dispose()
-        {
-            //attackUseCase.OnDamageUpdated -= UpdateDamage;
+            _viewModel.Nombre.Value = outputData.Nombre;
+            _viewModel.Danyo.Value = outputData.Danyo;
         }
     }
 }

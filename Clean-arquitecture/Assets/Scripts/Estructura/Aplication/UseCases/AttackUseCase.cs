@@ -6,6 +6,7 @@ namespace Assets.Scripts
     public class AttackUseCase : Attacker
     {
         private UpdaterDamage _updaterDamage;
+        private WeaponGateway _weaponGateway;
 
         //public event Action<InputData> OnDamageUpdated;
 
@@ -13,22 +14,23 @@ namespace Assets.Scripts
         //public static event OnDamageUpdateDelegate OnDamageEvent;
 
         //public static event Action<InputData> OnDamageAction;
-        public AttackUseCase(UpdaterDamage updaterDamage)
+        public AttackUseCase(UpdaterDamage updaterDamage, WeaponGateway weaponGateway)
         {
             _updaterDamage = updaterDamage;
+            _weaponGateway = weaponGateway;
         }
 
 
         public void Attack(InputData inputData)
         {
+            var weapon = _weaponGateway.GetWeapon(inputData.WeaponId);
+
             Console.WriteLine("Ataque!");
 
-            _updaterDamage.UpdateDamage(inputData);
-            //OnDamageUpdated?.Invoke(inputData);
+            OutputData outputData = new OutputData(weapon.Nombre, weapon.Danyo);
 
-     
-            //OnDamageEvent?.Invoke(inputData);
-            //OnDamageAction?.Invoke(inputData);
+            _updaterDamage.UpdateDamage(outputData);
+            //OnDamageUpdated?.Invoke(inputData);
         }
     }
 }
