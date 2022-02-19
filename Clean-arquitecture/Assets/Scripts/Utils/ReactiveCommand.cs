@@ -9,41 +9,24 @@ namespace Assets.Scripts.Utils
 {
     public class ReactiveCommand
     {
-        public  class Void{}
+        private dynamic _actions;
 
-        private readonly Dictionary<Type, dynamic> _actions;
-
-        public ReactiveCommand()
+        public void Execute()
         {
-            _actions = new Dictionary<Type, dynamic>();
-        }
-
-        public void Notify<T>(T signal)
-        {
-            var type = typeof(T);
-            if (!_actions.ContainsKey(type))
+            if (_actions == null)
                 return;
-            _actions[type](signal);
+
+            _actions();
         }
 
-        public void Subscribe<T>(Action<T> action)
+        public void Subscribe(Action action)
         {
-            var type = typeof(T);
-            if (!_actions.ContainsKey(type))
-            {
-                _actions.Add(type, null);
-            }
-
-            _actions[type] += action;
+            _actions += action;
         }
 
-        public void Unsubscribe<T>(Action<T> action)
+        public void Unsubscribe(Action action)
         {
-            var type = typeof(T);
-            if (_actions.ContainsKey(type))
-            {
-                _actions[type] -= action;
-            }
+            _actions -= action;
         }
     }
 

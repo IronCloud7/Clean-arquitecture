@@ -2,23 +2,23 @@
 
 namespace Assets.Scripts.Utils
 {
-    public class ReactiveProperty2<T>
+    public class ReactiveProperty<T>
     {
         private T _value;
         private dynamic _actions;
 
-        public T Value
-        {
-            get { return _value; }
-            set { _value = value; Notify(); }
-        }
-
-        public ReactiveProperty2(T value)
+        public ReactiveProperty(T value)
         {
             _value = value;
         }
 
-        private void Notify()
+        public T Value
+        {
+            get { return _value; }
+            set { _value = value; Execute(); }
+        }
+
+        private void Execute()
         {
             if (_actions == null)
                 return;
