@@ -1,17 +1,24 @@
-﻿using Patterns.Observer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Assets.Scripts.Utils
 {
-    public class ReactiveCommand
+    public class ReactiveProperty<T>
     {
+        private T _value;
         private dynamic _actions;
 
-        public void Execute()
+        public ReactiveProperty(T value)
+        {
+            _value = value;
+        }
+
+        public T Value
+        {
+            get { return _value; }
+            set { _value = value; Execute(); }
+        }
+
+        private void Execute()
         {
             if (_actions == null)
                 return;
@@ -30,5 +37,5 @@ namespace Assets.Scripts.Utils
         }
     }
 
- 
+
 }

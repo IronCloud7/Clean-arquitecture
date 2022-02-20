@@ -1,9 +1,11 @@
-﻿using Assets.Scripts.Estructura._1_Aplication.UseCases;
-using System;
+﻿using System;
+using Assets.Scripts.Estructura._1_Aplication.Hero.Models;
+using Assets.Scripts.Estructura._1_Aplication.UseCases;
+using Assets.Scripts.Estructura._1_Aplication.Weapon.Models;
 
-namespace Assets.Scripts.Estructura.Interface_Adapter
+namespace Assets.Scripts.Estructura._2_Interface_Adapter.Input
 {
-    public class InputController: IDisposable
+    public class InputController : IDisposable
     {
         private InputModel _inputModel;
         private Attacker _attackUseCase;
@@ -61,6 +63,6 @@ namespace Assets.Scripts.Estructura.Interface_Adapter
 
             _inputModel.HorizontalAxis.Unsubscribe(AxisUpdated);
             _inputModel.VerticalAxis.Unsubscribe(AxisUpdated);
-        } 
+        }
     }
 }

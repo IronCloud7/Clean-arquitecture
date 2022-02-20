@@ -1,7 +1,8 @@
-﻿using Assets.Scripts.Estructura.Interface_Adapter;
-using System;
+﻿using Assets.Scripts.Estructura._1_Aplication.Weapon.Gateway;
+using Assets.Scripts.Estructura._1_Aplication.Weapon.Models;
+using Assets.Scripts.Estructura._1_Aplication.Weapon.Service;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Estructura._1_Aplication.UseCases
 {
     public class AttackUseCase : Attacker
     {

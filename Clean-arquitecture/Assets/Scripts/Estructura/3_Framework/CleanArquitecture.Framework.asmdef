@@ -1,0 +1,16 @@
+{
+    "name": "CleanArquitecture.Framework",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c322da5a8e937054e95b81fb5e63b889"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

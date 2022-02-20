@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Estructura._2_Interface_Adapter.Hero;
-using System;
-
+﻿using Assets.Scripts.Estructura._1_Aplication.Hero.Service;
 
 namespace Assets.Scripts.Estructura._1_Aplication.UseCases
 {
@@ -16,6 +14,6 @@ namespace Assets.Scripts.Estructura._1_Aplication.UseCases
         public void Jump()
         {
             _updaterJump.UpdateJump();
-        } 
+        }
     }
 }

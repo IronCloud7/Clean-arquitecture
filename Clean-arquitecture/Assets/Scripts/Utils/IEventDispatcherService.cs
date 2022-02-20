@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Code.Utils
+namespace Assets.Scripts.Utils
 {
     public class EventDispatcherService
     {

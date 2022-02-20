@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Estructura._2_Interface_Adapter.Hero
+﻿namespace Assets.Scripts.Estructura._1_Aplication.Hero.Service
 {
     public interface UpdaterJump
     {

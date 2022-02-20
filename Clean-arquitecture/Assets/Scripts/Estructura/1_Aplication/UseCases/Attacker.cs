@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Assets.Scripts.Estructura._1_Aplication.Weapon.Models;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Estructura._1_Aplication.UseCases
 {
     public interface Attacker
     {

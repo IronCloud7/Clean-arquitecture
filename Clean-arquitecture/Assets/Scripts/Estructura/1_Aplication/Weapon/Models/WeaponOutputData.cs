@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Estructura.Interface_Adapter
+﻿namespace Assets.Scripts.Estructura._1_Aplication.Weapon.Models
 {
     public class WeaponOutputData
     {
@@ -11,7 +11,7 @@
             _damage = damage;
         }
 
-        public string Nombre  => _arma; 
+        public string Nombre => _arma;
         public float Danyo => _damage;
     }
 }

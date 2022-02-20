@@ -1,6 +1,7 @@
-﻿using Assets.Scripts.Utils;
+﻿
+using Assets.Scripts.Utils;
 
-namespace Assets.Scripts.Estructura.Interface_Adapter
+namespace Assets.Scripts.Estructura._2_Interface_Adapter.Hero
 {
     public class HeroViewModel
     {

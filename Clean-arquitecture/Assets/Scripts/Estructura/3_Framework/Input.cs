@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.Estructura.Interface_Adapter;
+﻿using Assets.Scripts.Estructura._2_Interface_Adapter.Input;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Estructura._3_Framework
 {
-    class Input : MonoBehaviour
+    public class Input : MonoBehaviour
     {
         private InputModel _modelView;
 
@@ -12,7 +12,7 @@ namespace Assets.Scripts
             _modelView = modelView;
         }
 
-        void Update()
+        public void Update()
         {
             _modelView.HorizontalAxis.Value = UnityEngine.Input.GetAxis("Horizontal"); ;
             _modelView.VerticalAxis.Value = UnityEngine.Input.GetAxis("Vertical"); ;

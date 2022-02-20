@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Utils;
 
-namespace Assets.Scripts.Estructura.Interface_Adapter
+namespace Assets.Scripts.Estructura._2_Interface_Adapter.Weapon
 {
     public class WeaponViewModel
     {

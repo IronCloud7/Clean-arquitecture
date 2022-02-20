@@ -1,9 +1,10 @@
-﻿using Assets.Scripts.Estructura.Interface_Adapter;
+﻿using Assets.Scripts.Estructura._1_Aplication.Weapon.Models;
+using Assets.Scripts.Estructura._1_Aplication.Weapon.Service;
 
-namespace Assets.Scripts.Estructura.Interface_Adapter
+namespace Assets.Scripts.Estructura._2_Interface_Adapter.Weapon
 {
 
-    class WeaponPresenter : UpdaterDamage
+    public class WeaponPresenter : UpdaterDamage
     {
         private readonly WeaponViewModel _viewModel;
 

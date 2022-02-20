@@ -1,11 +1,18 @@
 ﻿using Assets.Scripts.Estructura._1_Aplication.UseCases;
-using Assets.Scripts.Estructura.Framework;
-using Assets.Scripts.Estructura.Interface_Adapter;
+using Assets.Scripts.Estructura._1_Aplication.Weapon.Gateway;
+using Assets.Scripts.Estructura._2_Interface_Adapter.Hero;
+using Assets.Scripts.Estructura._2_Interface_Adapter.Input;
+using Assets.Scripts.Estructura._2_Interface_Adapter.Weapon;
+using Assets.Scripts.Estructura._2_Interface_Adapter.Weapon.DataSource;
+using Assets.Scripts.Estructura._3_Framework;
+using Assets.Scripts.Estructura._3_Framework.Hero;
+using Assets.Scripts.Estructura._3_Framework.Weapon;
 using UnityEngine;
+using Input = Assets.Scripts.Estructura._3_Framework.Input;
 
 namespace Assets.Scripts
 {
-    class Installer : MonoBehaviour
+    public class Installer : MonoBehaviour
     {
         [SerializeField] private Input _input;
         [SerializeField] private WeaponView _weaponView;
@@ -14,7 +21,7 @@ namespace Assets.Scripts
 
         public void Awake()
         {
-             InputModel inputModel = new InputModel();
+            InputModel inputModel = new InputModel();
 
             //Weapon      
             WeaponViewModel weaponViewModel = new WeaponViewModel();

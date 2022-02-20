@@ -1,13 +1,9 @@
-﻿using Assets.Scripts.Estructura._2_Interface_Adapter.Hero;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Estructura._1_Aplication.Hero.Models;
+using Assets.Scripts.Estructura._1_Aplication.Hero.Service;
 
 namespace Assets.Scripts.Estructura._1_Aplication.UseCases
 {
-    class MoveUseCase : Mover
+    public class MoveUseCase : Mover
     {
         private UpdaterMove _updaterMove;
 
@@ -18,7 +14,7 @@ namespace Assets.Scripts.Estructura._1_Aplication.UseCases
 
         public void Move(HeroInputData inputData)
         {
-            HeroOutputData heroOutputData = new HeroOutputData(inputData.HorizontalAxis , inputData.VerticalAxis);
+            HeroOutputData heroOutputData = new HeroOutputData(inputData.HorizontalAxis, inputData.VerticalAxis);
 
             _updaterMove.UpdateMove(heroOutputData);
         }
