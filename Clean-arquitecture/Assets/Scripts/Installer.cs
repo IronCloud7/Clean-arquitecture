@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Estructura._1_Aplication.UseCases;
+﻿using Assets.Scripts.Estructura._1_Aplication.Hero.Gateway;
+using Assets.Scripts.Estructura._1_Aplication.UseCases;
 using Assets.Scripts.Estructura._1_Aplication.Weapon.Gateway;
 using Assets.Scripts.Estructura._2_Interface_Adapter.Hero;
 using Assets.Scripts.Estructura._2_Interface_Adapter.Input;
@@ -17,7 +18,8 @@ namespace Assets.Scripts
         [SerializeField] private Input _input;
         [SerializeField] private WeaponView _weaponView;
         [SerializeField] private HeroView _heroView;
-        [SerializeField] private UnityDataService _unityService;
+        [SerializeField] private HeroCollisioner _heroCollisioner;
+        [SerializeField] private WeaponDataAccess _weaponDataAccess;
 
         public void Awake()
         {
@@ -26,7 +28,7 @@ namespace Assets.Scripts
             //Weapon      
             WeaponViewModel weaponViewModel = new WeaponViewModel();
             WeaponPresenter weaponPresenter = new WeaponPresenter(weaponViewModel);
-            WeaponGateway weaponGateway = new WeaponGatewayImp(_unityService);
+            WeaponGateway weaponGateway = new WeaponGatewayImp(_weaponDataAccess);
 
             Attacker attackUseCase = new AttackUseCase(weaponPresenter, weaponGateway);
 
@@ -34,8 +36,11 @@ namespace Assets.Scripts
             HeroViewModel heroViewModel = new HeroViewModel();
             HeroPresenter heroPresenter = new HeroPresenter(heroViewModel);
 
+            HeroColisionerModel heroColisionerModel = new HeroColisionerModel();
+            HeroColisionerGateway heroCollisioner = new HeroCollisionerGatewayImp(heroColisionerModel);
+
             Mover moveUseCase = new MoveUseCase(heroPresenter);
-            Jumper jumpUseCase = new JumpUseCase(heroPresenter);
+            Jumper jumpUseCase = new JumpUseCase(heroPresenter, heroCollisioner);
             InputController inputController = new InputController(inputModel, attackUseCase, moveUseCase, jumpUseCase);
 
             //Asignar inputModel al input
@@ -44,6 +49,7 @@ namespace Assets.Scripts
             //Asignar viewModels a las views
             _weaponView.Configure(weaponViewModel);
             _heroView.Configure(heroViewModel);
+            _heroCollisioner.Configure(heroColisionerModel);
         }
     }
 

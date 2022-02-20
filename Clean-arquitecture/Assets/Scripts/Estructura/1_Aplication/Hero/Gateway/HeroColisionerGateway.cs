@@ -8,6 +8,6 @@ namespace Assets.Scripts.Estructura._1_Aplication.Hero.Gateway
 {
     public interface HeroColisionerGateway
     {
-       // bool isGround
+        public bool isGround();
     }
 }
