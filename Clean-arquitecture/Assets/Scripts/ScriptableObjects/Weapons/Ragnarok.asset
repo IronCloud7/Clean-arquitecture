@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c254e0244dcabb04a9d5112166fc0508, type: 3}
-  m_Name: Excalibur
+  m_Name: Ragnarok
   m_EditorClassIdentifier: 
-  _id: 1
-  _nombre: Excalibour
-  _danyo: 100
+  _id: 2
+  _nombre: Ragnarok
+  _danyo: 200
