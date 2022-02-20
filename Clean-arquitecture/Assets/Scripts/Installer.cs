@@ -1,27 +1,42 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Estructura._1_Aplication.UseCases;
+using Assets.Scripts.Estructura.Framework;
+using Assets.Scripts.Estructura.Interface_Adapter;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
     class Installer : MonoBehaviour
     {
         [SerializeField] private Input _input;
-        [SerializeField] private View _view;
+        [SerializeField] private WeaponView _weaponView;
+        [SerializeField] private HeroView _heroView;
+        [SerializeField] private UnityDataService _unityService;
 
         public void Awake()
         {
-             ViewModel viewModel = new ViewModel();
+             InputModel inputModel = new InputModel();
 
-            _input.Configure(viewModel);
-            _view.Configure(viewModel);
+            //Weapon      
+            WeaponViewModel weaponViewModel = new WeaponViewModel();
+            WeaponPresenter weaponPresenter = new WeaponPresenter(weaponViewModel);
+            WeaponGateway weaponGateway = new WeaponGatewayImp(_unityService);
 
-            InputPresenter inputPresenter = new InputPresenter(viewModel);
+            Attacker attackUseCase = new AttackUseCase(weaponPresenter, weaponGateway);
 
-            Attacker AttackUseCase = new AttackUseCase(inputPresenter);
-            Attacker AttackUseCase2 = new AttackUseCase(inputPresenter);
+            //Hero
+            HeroViewModel heroViewModel = new HeroViewModel();
+            HeroPresenter heroPresenter = new HeroPresenter(heroViewModel);
 
-            InputController inputController = new InputController(viewModel, AttackUseCase);
-            //InputPresenter inputPresenter = new InputPresenter(viewModel, AttackUseCase);
+            Mover moveUseCase = new MoveUseCase(heroPresenter);
+            Jumper jumpUseCase = new JumpUseCase(heroPresenter);
+            InputController inputController = new InputController(inputModel, attackUseCase, moveUseCase, jumpUseCase);
 
+            //Asignar inputModel al input
+            _input.Configure(inputModel);
+
+            //Asignar viewModels a las views
+            _weaponView.Configure(weaponViewModel);
+            _heroView.Configure(heroViewModel);
         }
     }
 
