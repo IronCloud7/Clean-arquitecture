@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Estructura.Interface_Adapter.Dto.Weapons
+﻿namespace Assets.Scripts.Estructura._2_Interface_Adapter.Weapon.Dto
 {
     public class WeaponDto
     {

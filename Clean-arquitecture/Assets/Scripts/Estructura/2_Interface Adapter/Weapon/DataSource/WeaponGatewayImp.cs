@@ -1,25 +1,27 @@
-using Assets.Scripts.Estructura.Aplication.Entities;
-using Assets.Scripts.Estructura.Interface_Adapter.DataSource;
-using Assets.Scripts.Estructura.Interface_Adapter.Weapons.DataSource.Services;
+using Assets.Scripts.Estructura._1_Aplication.Weapon.Gateway;
+using Assets.Scripts.Estructura._2_Interface_Adapter.Weapon.DataSource.Services;
 
-public class WeaponGatewayImp : WeaponGateway
+namespace Assets.Scripts.Estructura._2_Interface_Adapter.Weapon.DataSource
 {
-    private DataAccess _dataAccess;
-
-    public WeaponGatewayImp(DataAccess dataAccess)
+    public class WeaponGatewayImp : WeaponGateway
     {
-        _dataAccess = dataAccess;
-    }
+        private DataAccess _dataAccess;
 
-    public Weapon GetWeapon(string id)
-    {
-        var weaponDto = _dataAccess.GetWeapon(id);
-        var weapon = new Weapon();
+        public WeaponGatewayImp(DataAccess dataAccess)
+        {
+            _dataAccess = dataAccess;
+        }
 
-        weapon.Id = weaponDto.Id;
-        weapon.Nombre = weaponDto.Nombre;
-        weapon.Danyo = weaponDto.Danyo;
+        public _1_Aplication.Weapon.Entity.Weapon GetWeapon(string id)
+        {
+            var weaponDto = _dataAccess.GetWeapon(id);
+            var weapon = new _1_Aplication.Weapon.Entity.Weapon();
 
-        return weapon;
+            weapon.Id = weaponDto.Id;
+            weapon.Nombre = weaponDto.Nombre;
+            weapon.Danyo = weaponDto.Danyo;
+
+            return weapon;
+        }
     }
 }

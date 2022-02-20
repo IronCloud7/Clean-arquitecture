@@ -1,35 +1,38 @@
-using Assets.Scripts.Estructura.Interface_Adapter;
+using Assets.Scripts.Estructura._2_Interface_Adapter.Weapon;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponView : MonoBehaviour
+namespace Assets.Scripts.Estructura._3_Framework.Weapon
 {
-    private WeaponViewModel _modelView;
-
-    [SerializeField] private Text _arma;
-    [SerializeField] private Text _danyo;
-
-    public void Configure(WeaponViewModel modelView)
+    public class WeaponView : MonoBehaviour
     {
-        _modelView = modelView;
-        _modelView.Nombre.Subscribe(UpdateName);
-        _modelView.Danyo.Subscribe(UpdateDamage);
-    }
+        private WeaponViewModel _modelView;
 
-    public void UpdateName()
-    {
-        _arma.text = $"Arma: {_modelView.Nombre.Value}";
-    }
+        [SerializeField] private Text _arma;
+        [SerializeField] private Text _danyo;
 
-    public void UpdateDamage()
-    {
-        _danyo.text = $"Daño: {_modelView.Danyo.Value}";
-    }
+        public void Configure(WeaponViewModel modelView)
+        {
+            _modelView = modelView;
+            _modelView.Nombre.Subscribe(UpdateName);
+            _modelView.Danyo.Subscribe(UpdateDamage);
+        }
 
-    private void OnDestroy()
-    {
-        _modelView.Nombre.Unsubscribe(UpdateName);
-        _modelView.Danyo.Unsubscribe(UpdateDamage);
-    }
+        public void UpdateName()
+        {
+            _arma.text = $"Arma: {_modelView.Nombre.Value}";
+        }
 
+        public void UpdateDamage()
+        {
+            _danyo.text = $"Daño: {_modelView.Danyo.Value}";
+        }
+
+        private void OnDestroy()
+        {
+            _modelView.Nombre.Unsubscribe(UpdateName);
+            _modelView.Danyo.Unsubscribe(UpdateDamage);
+        }
+
+    }
 }

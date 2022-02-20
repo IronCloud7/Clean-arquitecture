@@ -1,4 +1,4 @@
-﻿namespace Patterns.Observer
+﻿namespace Assets.Scripts.Observer
 {
     public interface Subject
     {

@@ -1,10 +1,11 @@
-﻿using Assets.Scripts.Estructura.Interface_Adapter.DataSource;
-using Assets.Scripts.Estructura.Interface_Adapter.Dto.Weapons;
+﻿using Assets.Scripts.Estructura._2_Interface_Adapter.Weapon.DataSource.Services;
+using Assets.Scripts.Estructura._2_Interface_Adapter.Weapon.Dto;
+using Assets.Scripts.Estructura._3_Framework.Weapon.Data;
 using UnityEngine;
 
-namespace Assets.Scripts.Estructura.Framework
+namespace Assets.Scripts.Estructura._3_Framework
 {
-    class UnityDataService : MonoBehaviour, LocalDataAccess
+    public class UnityDataService : MonoBehaviour, LocalDataAccess
     {
         [SerializeField] private WeaponConfigurations _weaponsData;
 
@@ -13,7 +14,7 @@ namespace Assets.Scripts.Estructura.Framework
             _weaponsData = Instantiate(_weaponsData);
         }
         public WeaponDto GetWeapon(string id)
-        {        
+        {
             var weaponData = _weaponsData.GetWeaponById(id);
 
             var weaponDto = new WeaponDto();

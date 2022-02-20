@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Estructura.Aplication.Entities
+﻿namespace Assets.Scripts.Estructura._1_Aplication.Weapon.Entity
 {
     public class Weapon
     {

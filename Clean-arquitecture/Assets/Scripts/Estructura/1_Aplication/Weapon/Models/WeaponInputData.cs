@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts
+﻿namespace Assets.Scripts.Estructura._1_Aplication.Weapon.Models
 {
     public class WeaponInputData
     {

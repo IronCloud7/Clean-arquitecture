@@ -2,23 +2,11 @@
 
 namespace Assets.Scripts.Utils
 {
-    public class ReactiveProperty<T>
+    public class ReactiveCommand
     {
-        private T _value;
         private dynamic _actions;
 
-        public ReactiveProperty(T value)
-        {
-            _value = value;
-        }
-
-        public T Value
-        {
-            get { return _value; }
-            set { _value = value; Execute(); }
-        }
-
-        private void Execute()
+        public void Execute()
         {
             if (_actions == null)
                 return;
@@ -37,5 +25,5 @@ namespace Assets.Scripts.Utils
         }
     }
 
- 
+
 }

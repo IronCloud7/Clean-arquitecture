@@ -1,9 +1,7 @@
 ﻿
-using Assets.Scripts.Estructura.Interface_Adapter.Weapons.DataSource.Services;
-
-namespace Assets.Scripts.Estructura.Interface_Adapter.Weapons
+namespace Assets.Scripts.Estructura._2_Interface_Adapter.Weapon.DataSource.Services
 {
-    public interface RemoteDataAccess: DataAccess
+    public interface RemoteDataAccess : DataAccess
     {
         //public WeaponDto GetWeapon(string id);
     }
