@@ -7,7 +7,7 @@ namespace Assets.Scripts.Estructura._3_Framework.Hero
     {
         private HeroViewModel _heroViewModel;
 
-        [SerializeField] private readonly float _jump = 10;
+        [SerializeField] private readonly float _jump = 20;
         [SerializeField] private readonly float _velocity = 4;
 
         private Rigidbody2D _rigidbody;

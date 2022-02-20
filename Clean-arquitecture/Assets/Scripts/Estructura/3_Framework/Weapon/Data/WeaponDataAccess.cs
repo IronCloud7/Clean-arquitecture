@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Estructura._3_Framework
 {
-    public class UnityDataService : MonoBehaviour, LocalDataAccess
+    public class WeaponDataAccess : MonoBehaviour, LocalDataAccess
     {
         [SerializeField] private WeaponConfigurations _weaponsData;
 
