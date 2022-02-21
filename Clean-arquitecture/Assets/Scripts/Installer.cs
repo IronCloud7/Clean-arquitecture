@@ -9,10 +9,12 @@ namespace Assets.Scripts
     public class Installer : MonoBehaviour
     {
         [SerializeField] private Input _input;
-        [SerializeField] private WeaponView _weaponView;
+
         [SerializeField] private HeroView _heroView;
         [SerializeField] private HeroCollisioner _heroCollisioner;
-        [SerializeField] private WeaponService _weaponService;
+
+        [SerializeField] private WeaponView _weaponView;
+        [SerializeField] private WeaponUnityDataService _weaponService;
 
         public void Awake()
         {
