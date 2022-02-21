@@ -133,8 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 197512259}
   - component: {fileID: 197512258}
-  - component: {fileID: 197512257}
   - component: {fileID: 197512260}
+  - component: {fileID: 197512257}
   - component: {fileID: 197512261}
   m_Layer: 0
   m_Name: Installer
@@ -172,7 +172,7 @@ MonoBehaviour:
   _input: {fileID: 197512260}
   _weaponView: {fileID: 197512257}
   _heroView: {fileID: 407075368}
-  _unityService: {fileID: 197512261}
+  _heroCollisioner: {fileID: 407075369}
 --- !u!4 &197512259
 Transform:
   m_ObjectHideFlags: 0
@@ -208,10 +208,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 197512256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6615e43a9cd4bc44f9c611bb30a0a602, type: 3}
+  m_Script: {fileID: 11500000, guid: d95d1b5d66741044ca229b5b8f3d6aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponsData: {fileID: 11400000, guid: 3b16aa464e796cf4ca0487a68ef7c1c3, type: 2}
+  _weaponsData: {fileID: 11400000, guid: ecbed3428881d0746ba5337efb1596d7, type: 2}
 --- !u!1 &407075363
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 407075364}
   - component: {fileID: 407075367}
   - component: {fileID: 407075368}
+  - component: {fileID: 407075369}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -356,8 +357,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f76622577681340a38c811ffbc9550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump: 10
-  _velocidad: 4
+  _jump: 20
+  _velocity: 3
+--- !u!114 &407075369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407075363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85682d0e33db08641a4b357b4265d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +593,7 @@ GameObject:
   - component: {fileID: 771546512}
   - component: {fileID: 771546511}
   - component: {fileID: 771546510}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

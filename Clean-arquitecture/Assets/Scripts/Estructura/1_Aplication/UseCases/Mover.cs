@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Estructura._1_Aplication.Hero.Models;
-
-namespace Assets.Scripts.Estructura._1_Aplication.UseCases
+﻿namespace Assets.Scripts.Estructura._1_Aplication
 {
     public interface Mover
     {

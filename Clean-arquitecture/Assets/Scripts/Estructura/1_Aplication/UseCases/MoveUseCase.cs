@@ -1,7 +1,4 @@
-﻿using Assets.Scripts.Estructura._1_Aplication.Hero.Models;
-using Assets.Scripts.Estructura._1_Aplication.Hero.Service;
-
-namespace Assets.Scripts.Estructura._1_Aplication.UseCases
+﻿namespace Assets.Scripts.Estructura._1_Aplication
 {
     public class MoveUseCase : Mover
     {

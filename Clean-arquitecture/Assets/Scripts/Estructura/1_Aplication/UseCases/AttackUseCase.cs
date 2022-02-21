@@ -1,23 +1,19 @@
-﻿using Assets.Scripts.Estructura._1_Aplication.Weapon.Gateway;
-using Assets.Scripts.Estructura._1_Aplication.Weapon.Models;
-using Assets.Scripts.Estructura._1_Aplication.Weapon.Service;
-
-namespace Assets.Scripts.Estructura._1_Aplication.UseCases
+﻿namespace Assets.Scripts.Estructura._1_Aplication
 {
     public class AttackUseCase : Attacker
     {
         private UpdaterDamage _updaterDamage;
-        private WeaponGateway _weaponGateway;
+        private WeaponDataAccess _weaponRepository;
 
-        public AttackUseCase(UpdaterDamage updaterDamage, WeaponGateway weaponGateway)
+        public AttackUseCase(UpdaterDamage updaterDamage, WeaponDataAccess weaponRepository)
         {
             _updaterDamage = updaterDamage;
-            _weaponGateway = weaponGateway;
+            _weaponRepository = weaponRepository;
         }
 
         public void Attack(WeaponInputData inputData)
         {
-            var weapon = _weaponGateway.GetWeapon(inputData.WeaponId);
+            var weapon = _weaponRepository.GetWeapon(inputData.WeaponId);
 
             WeaponOutputData outputData = new WeaponOutputData(weapon.Nombre, weapon.Danyo);
 

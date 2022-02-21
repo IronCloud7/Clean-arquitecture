@@ -1,7 +1,6 @@
-﻿
-using Assets.Scripts.Utils;
+﻿using Assets.Scripts.Utils;
 
-namespace Assets.Scripts.Estructura._2_Interface_Adapter.Input
+namespace Assets.Scripts.Estructura._2_Interface_Adapter
 {
     public class InputModel
     {

@@ -1,9 +1,7 @@
-﻿using System;
-using Assets.Scripts.Estructura._1_Aplication.Hero.Models;
-using Assets.Scripts.Estructura._1_Aplication.UseCases;
-using Assets.Scripts.Estructura._1_Aplication.Weapon.Models;
+﻿using Assets.Scripts.Estructura._1_Aplication;
+using System;
 
-namespace Assets.Scripts.Estructura._2_Interface_Adapter.Input
+namespace Assets.Scripts.Estructura._2_Interface_Adapter
 {
     public class InputController : IDisposable
     {

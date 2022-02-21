@@ -1,13 +1,6 @@
-﻿using Assets.Scripts.Estructura._1_Aplication.Hero.Gateway;
-using Assets.Scripts.Estructura._1_Aplication.UseCases;
-using Assets.Scripts.Estructura._1_Aplication.Weapon.Gateway;
-using Assets.Scripts.Estructura._2_Interface_Adapter.Hero;
-using Assets.Scripts.Estructura._2_Interface_Adapter.Input;
-using Assets.Scripts.Estructura._2_Interface_Adapter.Weapon;
-using Assets.Scripts.Estructura._2_Interface_Adapter.Weapon.DataSource;
+﻿using Assets.Scripts.Estructura._1_Aplication;
+using Assets.Scripts.Estructura._2_Interface_Adapter;
 using Assets.Scripts.Estructura._3_Framework;
-using Assets.Scripts.Estructura._3_Framework.Hero;
-using Assets.Scripts.Estructura._3_Framework.Weapon;
 using UnityEngine;
 using Input = Assets.Scripts.Estructura._3_Framework.Input;
 
@@ -19,7 +12,7 @@ namespace Assets.Scripts
         [SerializeField] private WeaponView _weaponView;
         [SerializeField] private HeroView _heroView;
         [SerializeField] private HeroCollisioner _heroCollisioner;
-        [SerializeField] private WeaponDataAccess _weaponDataAccess;
+        [SerializeField] private WeaponService _weaponService;
 
         public void Awake()
         {
@@ -27,10 +20,12 @@ namespace Assets.Scripts
 
             //Weapon      
             WeaponViewModel weaponViewModel = new WeaponViewModel();
-            WeaponPresenter weaponPresenter = new WeaponPresenter(weaponViewModel);
-            WeaponGateway weaponGateway = new WeaponGatewayImp(_weaponDataAccess);
+            WeaponPresenter weaponPresenter = new WeaponPresenter(weaponViewModel);   
+            
+            WeaponGateway weaponGateway = new WeaponGatewayImp(_weaponService);
+            WeaponDataAccess weaponRepository = new WeaponRepository(weaponGateway);
 
-            Attacker attackUseCase = new AttackUseCase(weaponPresenter, weaponGateway);
+            Attacker attackUseCase = new AttackUseCase(weaponPresenter, weaponRepository);
 
             //Hero
             HeroViewModel heroViewModel = new HeroViewModel();

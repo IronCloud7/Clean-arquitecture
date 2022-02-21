@@ -1,7 +1,7 @@
 ﻿namespace Assets.Scripts.Estructura._1_Aplication
 {
-    public interface Jumper
+    public interface UpdaterJump
     {
-        public void Jump();
+        public void UpdateJump();
     }
 }
