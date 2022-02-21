@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Estructura._3_Framework
 {
-    public class WeaponUnityService : MonoBehaviour, WeaponService
+    public class WeaponUnityDataService : MonoBehaviour, WeaponDataService
     {
         [SerializeField] private WeaponsData _weaponsData;
 
