@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Estructura._2_Interface_Adapter.Input;
+﻿using Assets.Scripts.Estructura._2_Interface_Adapter;
 using UnityEngine;
 
 namespace Assets.Scripts.Estructura._3_Framework
