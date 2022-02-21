@@ -170,9 +170,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 197512260}
-  _weaponView: {fileID: 197512257}
   _heroView: {fileID: 407075368}
   _heroCollisioner: {fileID: 407075369}
+  _weaponView: {fileID: 197512257}
+  _weaponService: {fileID: 197512261}
 --- !u!4 &197512259
 Transform:
   m_ObjectHideFlags: 0

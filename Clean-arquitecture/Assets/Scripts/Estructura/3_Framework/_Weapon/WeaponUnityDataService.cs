@@ -12,16 +12,16 @@ namespace Assets.Scripts.Estructura._3_Framework
             _weaponsData = Instantiate(_weaponsData);
         }
 
-        public WeaponDto GetWeapon(string id)
+        public WeaponResult GetWeapon(string id)
         {
             var weaponData = _weaponsData.GetWeaponById(id);
 
-            var weaponDto = new WeaponDto();
-            weaponDto.Id = weaponData.Id;
-            weaponDto.Nombre = weaponData.Nombre;
-            weaponDto.Danyo = weaponData.Danyo;
+            var weaponResult = new WeaponResult();
+            weaponResult.Id = weaponData.Id;
+            weaponResult.Nombre = weaponData.Nombre;
+            weaponResult.Danyo = weaponData.Danyo;
 
-            return weaponDto;
+            return weaponResult;
         }
     }
 }

@@ -4,6 +4,6 @@ namespace Assets.Scripts.Estructura._3_Framework
 {
     public interface WeaponDataService
     {
-        public WeaponDto GetWeapon(string id);
+        public WeaponResult GetWeapon(string id);
     }
 }
