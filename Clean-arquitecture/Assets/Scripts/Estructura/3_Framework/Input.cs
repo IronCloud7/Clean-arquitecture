@@ -14,8 +14,8 @@ namespace Assets.Scripts.Estructura._3_Framework
 
         public void Update()
         {
-            _modelView.HorizontalAxis.Value = UnityEngine.Input.GetAxis("Horizontal"); ;
-            _modelView.VerticalAxis.Value = UnityEngine.Input.GetAxis("Vertical"); ;
+            _modelView.HorizontalAxis.Value = UnityEngine.Input.GetAxis("Horizontal");
+            _modelView.VerticalAxis.Value = UnityEngine.Input.GetAxis("Vertical");
 
 
             if (UnityEngine.Input.GetKeyDown(KeyCode.F1))

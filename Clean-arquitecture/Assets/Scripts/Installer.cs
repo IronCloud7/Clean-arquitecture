@@ -11,7 +11,7 @@ namespace Assets.Scripts
         [SerializeField] private Input _input;
 
         [SerializeField] private HeroView _heroView;
-        [SerializeField] private HeroCollisioner _heroCollisioner;
+        [SerializeField] private GroundCollisionDetector _groundCollisionDetector;
 
         [SerializeField] private WeaponView _weaponView;
         [SerializeField] private WeaponUnityDataService _weaponService;
@@ -33,11 +33,11 @@ namespace Assets.Scripts
             HeroViewModel heroViewModel = new HeroViewModel();
             HeroPresenter heroPresenter = new HeroPresenter(heroViewModel);
 
-            HeroColisionerModel heroColisionerModel = new HeroColisionerModel();
-            HeroColisionerGateway heroCollisioner = new HeroCollisionerGatewayImp(heroColisionerModel);
+            GroundModel groundModel = new GroundModel();
+            GroundDataAccess groundDataAccess = new GroundDataAccessImp(groundModel);
 
             Mover moveUseCase = new MoveUseCase(heroPresenter);
-            Jumper jumpUseCase = new JumpUseCase(heroPresenter, heroCollisioner);
+            Jumper jumpUseCase = new JumpUseCase(heroPresenter, groundDataAccess);
             InputController inputController = new InputController(inputModel, attackUseCase, moveUseCase, jumpUseCase);
 
             //Asignar inputModel al input
@@ -46,7 +46,7 @@ namespace Assets.Scripts
             //Asignar viewModels a las views
             _weaponView.Configure(weaponViewModel);
             _heroView.Configure(heroViewModel);
-            _heroCollisioner.Configure(heroColisionerModel);
+            _groundCollisionDetector.Configure(groundModel);
         }
     }
 

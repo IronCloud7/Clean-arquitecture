@@ -3,17 +3,17 @@
     public class JumpUseCase : Jumper
     {
         private UpdaterJump _updaterJump;
-        private HeroColisionerGateway _heroCollisioner;
+        private GroundDataAccess _groundDataAccess;
 
-        public JumpUseCase(UpdaterJump updaterJump, HeroColisionerGateway heroCollisioner)
+        public JumpUseCase(UpdaterJump updaterJump, GroundDataAccess groundDataService)
         {
             _updaterJump = updaterJump;
-            _heroCollisioner = heroCollisioner;
+            _groundDataAccess = groundDataService;
         }
 
         public void Jump()
         {
-            if (_heroCollisioner.isGround())
+            if (_groundDataAccess.isGround())
             {
                 _updaterJump.UpdateJump();
             }

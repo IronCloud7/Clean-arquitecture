@@ -3,18 +3,18 @@ using UnityEngine;
 
 namespace Assets.Scripts.Estructura._3_Framework
 {
-    public class HeroCollisioner : MonoBehaviour
+    public class GroundCollisionDetector : MonoBehaviour
     {
         [SerializeField] private LayerMask _layer;
 
-        private HeroColisionerModel _heroColisionerModel;
-        public void Configure(HeroColisionerModel heroColisionerModel)
+        private _2_Interface_Adapter.GroundModel _heroColisionerModel;
+        public void Configure(GroundModel heroColisionerModel)
         {
             _heroColisionerModel = heroColisionerModel;
         }
+
         public void OnCollisionEnter2D(Collision2D collision)
         {
-
             if ((_layer.value & (1 << collision.gameObject.layer)) > 0)
             {
                 _heroColisionerModel.IsGround = true;
