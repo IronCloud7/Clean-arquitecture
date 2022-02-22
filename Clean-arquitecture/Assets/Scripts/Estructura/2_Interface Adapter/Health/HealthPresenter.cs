@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Estructura._2_Interface_Adapter
 {
-    public class HealthPresenter : MonoBehaviour, UpdaterHealth
+    public class HealthPresenter : UpdaterHealth
     {
         private readonly HealthViewModel _healthViewModel;
 

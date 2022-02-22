@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthViewModel : MonoBehaviour
+public class HealthViewModel
 {
     private ReactiveProperty<int> _maxHealth;
     private ReactiveProperty<int> _currentHealth;
