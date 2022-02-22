@@ -8,6 +8,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
         private readonly ReactiveCommand _botonB;
         private readonly ReactiveCommand _botonX;
         private readonly ReactiveCommand _botonY;
+        private readonly ReactiveCommand _botonZ;
 
         private readonly ReactiveProperty<float> _horizontalAxis;
         private readonly ReactiveProperty<float> _verticalAxis;
@@ -18,6 +19,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             _botonB = new ReactiveCommand();
             _botonX = new ReactiveCommand();
             _botonY = new ReactiveCommand();
+            _botonZ = new ReactiveCommand();
 
             _horizontalAxis = new ReactiveProperty<float>(default);
             _verticalAxis = new ReactiveProperty<float>(default);
@@ -27,6 +29,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
         public ReactiveCommand BotonB { get => _botonB; }
         public ReactiveCommand BotonX { get => _botonX; }
         public ReactiveCommand BotonY { get => _botonY; }
+        public ReactiveCommand BotonZ { get => _botonZ; }
 
         public ReactiveProperty<float> HorizontalAxis { get => _horizontalAxis; }
         public ReactiveProperty<float> VerticalAxis { get => _verticalAxis; }

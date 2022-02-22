@@ -18,6 +18,9 @@ namespace Assets.Scripts
         [SerializeField] private WeaponView _weaponView;
         [SerializeField] private WeaponUnityDataService _weaponService;
 
+        [SerializeField] private HealthView _healthView;
+        [SerializeField] private HealthUnityDataService _healthService;
+
         public void Awake()
         {
             InputModel inputModel = new InputModel();
@@ -35,17 +38,25 @@ namespace Assets.Scripts
             HeroPresenter heroPresenter = new HeroPresenter(heroViewModel);
             HeroGateway heroGateway = new HeroGatewayImp(_heroService);
             HeroDataAccess heroRepository = new HeroRepository(heroGateway);
-            var hero1 = heroRepository.GetHero("1");
-            var hero2 = heroRepository.GetHero("2");
-            Debug.Log(hero1);
-            Debug.Log(hero2);
+            //var hero1 = heroRepository.GetHero("1");
+            //var hero2 = heroRepository.GetHero("2");
+            //Debug.Log(hero1);
+            //Debug.Log(hero2);
 
             GroundModel groundModel = new GroundModel();
             GroundDataAccess groundDataAccess = new GroundDataAccessImp(groundModel);
 
             Mover moveUseCase = new MoveUseCase(heroPresenter);
             Jumper jumpUseCase = new JumpUseCase(heroPresenter, groundDataAccess);
-            InputController inputController = new InputController(inputModel, attackUseCase, moveUseCase, jumpUseCase);
+
+            HealthViewModel healthViewModel = new HealthViewModel();
+            HealthPresenter healthPresenter = new HealthPresenter(healthViewModel);
+            HealthGateway healthGateway = new HealthGatewayImp(_healthService);
+            HealthDataAccess healthRepository = new HealthRepository(healthGateway);
+
+            HealthRefresher healthRefreshUseCase = new HealthRefreshUseCase(healthPresenter, healthRepository);
+
+            InputController inputController = new InputController(inputModel, attackUseCase, moveUseCase, jumpUseCase, healthRefreshUseCase);
 
             //Asignar inputModel al input
             _input.Configure(inputModel);
@@ -53,6 +64,7 @@ namespace Assets.Scripts
             //Asignar viewModels a las views
             _weaponView.Configure(weaponViewModel);
             _heroView.Configure(heroViewModel);
+            _healthView.Configure(healthViewModel);
             _groundCollisionDetector.Configure(groundModel);
         }
     }

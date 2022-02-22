@@ -37,6 +37,11 @@ namespace Assets.Scripts.Estructura._3_Framework
             {
                 _modelView.BotonY.Execute();
             }
+
+            if (UnityEngine.Input.GetKeyDown(KeyCode.F4))
+            {
+                _modelView.BotonZ.Execute();
+            }
         }
     }
 }

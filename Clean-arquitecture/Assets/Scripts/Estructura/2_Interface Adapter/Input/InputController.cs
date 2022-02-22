@@ -9,18 +9,20 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
         private Attacker _attackUseCase;
         private Mover _moveUseCase;
         private Jumper _jumpUseCase;
-
-        public InputController(InputModel inputModel, Attacker attackUseCase, Mover moveUseCase, Jumper jumpUseCase)
+        private HealthRefresher _healthRefreshUseCase;
+        public InputController(InputModel inputModel, Attacker attackUseCase, Mover moveUseCase, Jumper jumpUseCase, HealthRefresher healthRefreshUseCase)
         {
             _inputModel = inputModel;
             _attackUseCase = attackUseCase;
             _moveUseCase = moveUseCase;
             _jumpUseCase = jumpUseCase;
+            _healthRefreshUseCase = healthRefreshUseCase;
 
             _inputModel.BotonA.Subscribe(BotonAUpdated);
             _inputModel.BotonB.Subscribe(BotonBUpdated);
             _inputModel.BotonX.Subscribe(BotonXUpdated);
             _inputModel.BotonY.Subscribe(BotonYUpdated);
+            _inputModel.BotonZ.Subscribe(BotonZUpdated);
 
             _inputModel.HorizontalAxis.Subscribe(AxisUpdated);
             _inputModel.VerticalAxis.Subscribe(AxisUpdated);
@@ -46,6 +48,11 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             _attackUseCase.Attack(new WeaponInputData("3"));
         }
 
+        public void BotonZUpdated()
+        {
+            _healthRefreshUseCase.Refresh(new HealthInputData("1"));
+        }
+
         public void AxisUpdated()
         {
             _moveUseCase.Move(new HeroInputData(_inputModel.HorizontalAxis.Value, _inputModel.VerticalAxis.Value));
@@ -58,6 +65,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             _inputModel.BotonB.Unsubscribe(BotonBUpdated);
             _inputModel.BotonX.Unsubscribe(BotonXUpdated);
             _inputModel.BotonY.Unsubscribe(BotonYUpdated);
+            _inputModel.BotonY.Unsubscribe(BotonZUpdated);
 
             _inputModel.HorizontalAxis.Unsubscribe(AxisUpdated);
             _inputModel.VerticalAxis.Unsubscribe(AxisUpdated);
