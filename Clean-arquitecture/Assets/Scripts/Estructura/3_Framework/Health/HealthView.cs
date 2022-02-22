@@ -26,6 +26,7 @@ public class HealthView : MonoBehaviour
     private void OnDestroy()
     {
         _modelView.MaxHealth.Unsubscribe(UpdateHealth);
+        _modelView.CurrentHealth.Unsubscribe(UpdateHealth);
     }
 
 }
