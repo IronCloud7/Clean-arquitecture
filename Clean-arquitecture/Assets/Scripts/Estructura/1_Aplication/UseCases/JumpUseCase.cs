@@ -3,9 +3,9 @@
     public class JumpUseCase : Jumper
     {
         private UpdaterJump _updaterJump;
-        private GroundDataAccess _groundDataAccess;
+        private GroundGateway _groundDataAccess;
 
-        public JumpUseCase(UpdaterJump updaterJump, GroundDataAccess groundDataService)
+        public JumpUseCase(UpdaterJump updaterJump, GroundGateway groundDataService)
         {
             _updaterJump = updaterJump;
             _groundDataAccess = groundDataService;

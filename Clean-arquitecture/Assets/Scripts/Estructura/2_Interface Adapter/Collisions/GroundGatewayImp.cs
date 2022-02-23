@@ -2,11 +2,11 @@
 
 namespace Assets.Scripts.Estructura._2_Interface_Adapter
 {
-    public class GroundDataAccessImp : GroundDataAccess
+    public class GroundGatewayImp : GroundGateway
     {
         private readonly GroundModel _groundData;
 
-        public GroundDataAccessImp(GroundModel groundData)
+        public GroundGatewayImp(GroundModel groundData)
         {
             _groundData = groundData;
         }
