@@ -6,35 +6,36 @@ using Input = Assets.Scripts.Estructura._3_Framework.Input;
 
 namespace Assets.Scripts
 {
-    public class Installer3 : MonoBehaviour
+    public class Level01Installer : MonoBehaviour
     {
         [SerializeField] HeroInstaller _heroInstaller;
         [SerializeField] MenuInstaller _menuInstaller;
 
         [SerializeField] private Input _input;
-        [SerializeField] private GroundCollisionDetector _groundCollisionDetector;
+        [SerializeField] private GroundCheck _groundCollisionDetector;
 
         public void Awake()
         {
+            InputModel inputModel = new InputModel();
+            _input.Configure(inputModel);
+
             GroundModel groundModel = new GroundModel();
             GroundGateway groundGateway = new GroundGatewayImp(groundModel);
+
+            _groundCollisionDetector.Configure(groundModel);
 
             HeroDataAccess heroRepository = ServiceLocator.Instance.GetService<HeroDataAccess>();
             HealthDataAccess healthRepository = ServiceLocator.Instance.GetService<HealthDataAccess>();
             WeaponDataAccess weaponRepository = ServiceLocator.Instance.GetService<WeaponDataAccess>();
 
-            InputModel inputModel = new InputModel();
-
             GameStateController gameStateController = new GameStateController(inputModel);
-
-            _input.Configure(inputModel);
+     
             _heroInstaller.Configure(inputModel, groundGateway);
-            _menuInstaller.Configure(inputModel, weaponRepository, healthRepository);
-
             _heroInstaller.Initialize();
+
+            _menuInstaller.Configure(inputModel, weaponRepository, healthRepository);
             _menuInstaller.Initialize();
 
-            _groundCollisionDetector.Configure(groundModel);
         }
     }
 

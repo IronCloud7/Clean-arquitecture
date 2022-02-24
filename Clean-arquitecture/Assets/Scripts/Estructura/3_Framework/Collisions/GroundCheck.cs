@@ -3,21 +3,21 @@ using UnityEngine;
 
 namespace Assets.Scripts.Estructura._3_Framework
 {
-    public class GroundCollisionDetector : MonoBehaviour
+    public class GroundCheck : MonoBehaviour
     {
         [SerializeField] private LayerMask _layer;
 
-        private _2_Interface_Adapter.GroundModel _heroColisionerModel;
-        public void Configure(GroundModel heroColisionerModel)
+        private GroundModel _groundCheck;
+        public void Configure(GroundModel groundCheck)
         {
-            _heroColisionerModel = heroColisionerModel;
+            _groundCheck = groundCheck;
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
             if ((_layer.value & (1 << collision.gameObject.layer)) > 0)
             {
-                _heroColisionerModel.IsGround = true;
+                _groundCheck.IsGround = true;
             }
         }
 
@@ -25,7 +25,7 @@ namespace Assets.Scripts.Estructura._3_Framework
         {
             if ((_layer.value & (1 << collision.gameObject.layer)) > 0)
             {
-                _heroColisionerModel.IsGround = false;
+                _groundCheck.IsGround = false;
             }
         }
 

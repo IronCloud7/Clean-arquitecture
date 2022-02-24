@@ -1,4 +1,5 @@
 using Assets.Scripts.Estructura._1_Aplication;
+using Assets.Scripts.Estructura._1_Aplication.UseCases;
 using Assets.Scripts.Estructura._2_Interface_Adapter;
 using Assets.Scripts.Estructura._3_Framework;
 using UnityEngine;
@@ -8,22 +9,33 @@ namespace Assets.Scripts
 {
     public class MainMenuInstaller : MonoBehaviour
     {
-        //[SerializeField] HeroInstaller _heroInstaller;
-        //[SerializeField] MenuInstaller _menuInstaller;
-
+        [SerializeField] private MainMenuView _mainMenuView;
 
         [SerializeField] private HeroUnityDataService _heroService;
         [SerializeField] private HealthUnityDataService _healthService;
         [SerializeField] private WeaponUnityDataService _weaponService;
 
-        //[SerializeField] private Input _input;
-        //[SerializeField] private GroundCollisionDetector _groundCollisionDetector;
-
         public void Awake()
         {
-            //GroundModel groundModel = new GroundModel();
-            //GroundGateway groundGateway = new GroundGatewayImp(groundModel);
+            InitializeMenu();
+            InitializeDataServices();
+        }
 
+        public void InitializeMenu()
+        {
+            //Uses cases
+            StarterGame starterGame = new StartGameUseCase();
+
+            //Estructure
+            MainMenuViewModel mainMenuViewModel = new MainMenuViewModel();
+            MainMenuController mainMenuController = new MainMenuController(mainMenuViewModel, starterGame);
+
+            _mainMenuView.Configure(mainMenuViewModel);
+        }
+
+
+        public void InitializeDataServices()
+        {
             HeroGateway heroGateway = new HeroGatewayImp(_heroService);
             HeroDataAccess heroRepository = new HeroRepository(heroGateway);
 
@@ -33,9 +45,9 @@ namespace Assets.Scripts
             WeaponGateway weaponGateway = new WeaponGatewayImp(_weaponService);
             WeaponDataAccess weaponRepository = new WeaponRepository(weaponGateway);
 
-            ServiceLocator.Instance.RegisterService(heroRepository);
-            ServiceLocator.Instance.RegisterService(healthRepository);
-            ServiceLocator.Instance.RegisterService(weaponRepository);
+            ServiceLocator.Instance.RegisterService<HeroDataAccess>(heroRepository);
+            ServiceLocator.Instance.RegisterService<HealthDataAccess>(healthRepository);
+            ServiceLocator.Instance.RegisterService<WeaponDataAccess>(weaponRepository);
         }
     }
 

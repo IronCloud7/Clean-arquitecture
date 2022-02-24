@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b2e454b2662f346b32908b3622b879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainMenuView: {fileID: 1225479286}
   _heroService: {fileID: 1300662273}
   _healthService: {fileID: 1300662272}
   _weaponService: {fileID: 1300662270}

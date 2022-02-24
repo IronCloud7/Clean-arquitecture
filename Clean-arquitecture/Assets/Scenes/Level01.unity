@@ -227,12 +227,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 197512259}
-  - component: {fileID: 197512258}
-  - component: {fileID: 197512260}
   - component: {fileID: 197512261}
   - component: {fileID: 197512262}
   - component: {fileID: 197512263}
   - component: {fileID: 197512257}
+  - component: {fileID: 197512260}
   m_Layer: 0
   m_Name: Installer
   m_TagString: Untagged
@@ -255,26 +254,7 @@ MonoBehaviour:
   _heroInstaller: {fileID: 2113404943}
   _menuInstaller: {fileID: 2034696593}
   _input: {fileID: 197512260}
-  _groundCollisionDetector: {fileID: 2113404948}
---- !u!114 &197512258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197512256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49b0ee6c4847234eb2f9f726a6d4fe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _heroInstaller: {fileID: 2113404943}
-  _menuInstaller: {fileID: 2034696593}
-  _heroService: {fileID: 197512262}
-  _healthService: {fileID: 197512263}
-  _weaponService: {fileID: 197512261}
-  _input: {fileID: 197512260}
-  _groundCollisionDetector: {fileID: 2113404948}
+  _groundCollisionDetector: {fileID: 3807422369098739155}
 --- !u!4 &197512259
 Transform:
   m_ObjectHideFlags: 0
@@ -1230,17 +1210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c80b7a7cfc9bd439dd51288ae6a6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2113404948 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4337498686658678217, guid: 1974b4ef397fc3540a9a473c43ee56ef, type: 3}
-  m_PrefabInstance: {fileID: 3807422369098739154}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85682d0e33db08641a4b357b4265d9d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3807422369098739154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1296,6 +1265,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3807422368700356603, guid: 1974b4ef397fc3540a9a473c43ee56ef, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1974b4ef397fc3540a9a473c43ee56ef, type: 3}
+--- !u!114 &3807422369098739155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7705511411846809902, guid: 1974b4ef397fc3540a9a473c43ee56ef, type: 3}
+  m_PrefabInstance: {fileID: 3807422369098739154}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85682d0e33db08641a4b357b4265d9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

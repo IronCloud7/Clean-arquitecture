@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 3807422368700356596}
   - component: {fileID: 3807422368700356599}
   - component: {fileID: 3807422368700356598}
-  - component: {fileID: 4337498686658678217}
   - component: {fileID: 3807422368700356597}
-  - component: {fileID: 3807422368700356602}
   - component: {fileID: 9060797456346774939}
-  - component: {fileID: 3807422368700356603}
+  - component: {fileID: 3807422368700356602}
+  - component: {fileID: 7705511411846809902}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -114,21 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4337498686658678217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807422368700356593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85682d0e33db08641a4b357b4265d9d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!50 &3807422368700356597
 Rigidbody2D:
   serializedVersion: 4
@@ -150,6 +134,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9060797456346774939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3807422368700356593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c80b7a7cfc9bd439dd51288ae6a6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroView: {fileID: 3807422368700356602}
 --- !u!114 &3807422368700356602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,20 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jump: 20
   _velocity: 3
---- !u!114 &9060797456346774939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807422368700356593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c80b7a7cfc9bd439dd51288ae6a6a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _heroView: {fileID: 3807422368700356602}
---- !u!114 &3807422368700356603
+--- !u!114 &7705511411846809902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -6,14 +6,12 @@ public class MainMenuView : MonoBehaviour
 {
     [SerializeField] private Button StartGameButton;
 
-    private void Awake()
-    {
-        StartGameButton.onClick.AddListener(StartGame);
-    }
+    private MainMenuViewModel _mainMenuViewModel;
 
-    private void StartGame()
+    public void Configure(MainMenuViewModel mainMenuViewModel)
     {
-        SceneManager.LoadScene(1);
-    }
+        _mainMenuViewModel = mainMenuViewModel;
 
+        StartGameButton.onClick.AddListener(_mainMenuViewModel.StartGameButton.Execute);
+    }
 }
