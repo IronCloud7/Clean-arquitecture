@@ -36,6 +36,8 @@ namespace Assets.Scripts
 
             InputModel inputModel = new InputModel();
 
+            GameStateController gameStateController = new GameStateController(inputModel);
+
             _input.Configure(inputModel);
             _heroInstaller.Configure(inputModel, groundGateway);
             _menuInstaller.Configure(inputModel, weaponRepository, healthRepository);

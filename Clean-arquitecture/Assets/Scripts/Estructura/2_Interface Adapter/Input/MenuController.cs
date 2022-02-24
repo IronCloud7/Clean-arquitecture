@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Estructura._2_Interface_Adapter
 {
-    public class MenuController
+    public class MenuController : IDisposable
     {
         private InputModel _inputModel;
         private Attacker _attackUseCase;

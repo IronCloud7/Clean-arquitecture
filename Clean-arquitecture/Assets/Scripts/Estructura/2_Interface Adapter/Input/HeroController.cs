@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Estructura._2_Interface_Adapter
 {
-    public class HeroController
+    public class HeroController : IDisposable
     {
         private InputModel _inputModel;
         private Mover _moveUseCase;

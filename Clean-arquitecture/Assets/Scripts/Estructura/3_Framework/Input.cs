@@ -14,6 +14,7 @@ namespace Assets.Scripts.Estructura._3_Framework
 
         public void Update()
         {
+
             _modelView.HorizontalAxis.Value = UnityEngine.Input.GetAxis("Horizontal");
             _modelView.VerticalAxis.Value = UnityEngine.Input.GetAxis("Vertical");
 
@@ -41,6 +42,28 @@ namespace Assets.Scripts.Estructura._3_Framework
             if (UnityEngine.Input.GetKeyDown(KeyCode.F4))
             {
                 _modelView.BotonZ.Execute();
+            }
+
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Return))
+            {
+                _modelView.StartButtonPressed.Execute();
+            }
+
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+            {
+                _modelView.PauseButtonPressed.Execute();
+            }
+
+
+            if (UnityEngine.Input.GetKeyDown(KeyCode.F11))
+            {
+                _modelView.RestartButtonPressed.Execute();
+            }
+
+
+            if (UnityEngine.Input.GetKeyDown(KeyCode.F12))
+            {
+                _modelView.QuitButtonPressed.Execute();
             }
         }
     }

@@ -10,6 +10,12 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
         private readonly ReactiveCommand _botonY;
         private readonly ReactiveCommand _botonZ;
 
+        private readonly ReactiveCommand _startButtonPressed;
+        private readonly ReactiveCommand _pauseButtonPressed;
+        private readonly ReactiveCommand _quitButtonPressed;
+        private readonly ReactiveCommand _restartButtonPressed;
+
+
         private readonly ReactiveProperty<float> _horizontalAxis;
         private readonly ReactiveProperty<float> _verticalAxis;
 
@@ -20,6 +26,10 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             _botonX = new ReactiveCommand();
             _botonY = new ReactiveCommand();
             _botonZ = new ReactiveCommand();
+            _startButtonPressed = new ReactiveCommand();
+            _pauseButtonPressed = new ReactiveCommand();
+            _quitButtonPressed = new ReactiveCommand();
+            _restartButtonPressed = new ReactiveCommand();
 
             _horizontalAxis = new ReactiveProperty<float>(default);
             _verticalAxis = new ReactiveProperty<float>(default);
@@ -30,7 +40,10 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
         public ReactiveCommand BotonX { get => _botonX; }
         public ReactiveCommand BotonY { get => _botonY; }
         public ReactiveCommand BotonZ { get => _botonZ; }
-
+        public ReactiveCommand StartButtonPressed { get => _startButtonPressed; }
+        public ReactiveCommand PauseButtonPressed { get => _pauseButtonPressed; }
+        public ReactiveCommand QuitButtonPressed { get => _quitButtonPressed; }
+        public ReactiveCommand RestartButtonPressed { get => _restartButtonPressed; }
         public ReactiveProperty<float> HorizontalAxis { get => _horizontalAxis; }
         public ReactiveProperty<float> VerticalAxis { get => _verticalAxis; }
 

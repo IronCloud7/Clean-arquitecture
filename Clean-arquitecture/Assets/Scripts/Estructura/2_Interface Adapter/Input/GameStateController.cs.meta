@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 9d0d9aa04cc9d4140b356c24b6cab848
+guid: 5ce230cfa479415489dd5af59cf62bd0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - _healthsData: {fileID: 11400000, guid: 0eca07d3325db274b94a5d94b71bd49a, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
