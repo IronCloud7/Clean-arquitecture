@@ -18,9 +18,21 @@ public class ServiceLocator
     {
         var type = typeof(T);
 
-        Assert.IsFalse(_services.ContainsKey(type), $"Services {type} already registered");
+        Assert.IsFalse(_services.ContainsKey(type), 
+            $"Services {type} already registered");
 
         _services.Add(type, service);
+    }
 
+    public T GetService<T>()
+    {
+        var type = typeof (T);
+
+        if (!_services.TryGetValue(type, out var service))
+        {
+            throw new Exception($"Service {type} not found");
+        }
+
+        return (T) service;
     }
 }

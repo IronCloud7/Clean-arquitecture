@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 197512261}
   - component: {fileID: 197512262}
   - component: {fileID: 197512263}
+  - component: {fileID: 197512257}
   m_Layer: 0
   m_Name: Installer
   m_TagString: Untagged
@@ -239,6 +240,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &197512257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197512256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d559d1c9c7e5cf4ea7f524d8afd40b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroInstaller: {fileID: 2113404943}
+  _menuInstaller: {fileID: 2034696593}
+  _input: {fileID: 197512260}
+  _groundCollisionDetector: {fileID: 2113404948}
 --- !u!114 &197512258
 MonoBehaviour:
   m_ObjectHideFlags: 0

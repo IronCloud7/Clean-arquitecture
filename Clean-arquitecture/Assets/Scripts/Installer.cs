@@ -19,34 +19,34 @@ namespace Assets.Scripts
         [SerializeField] private Input _input;
         [SerializeField] private GroundCollisionDetector _groundCollisionDetector;
 
-        public void Awake()
-        {
-            GroundModel groundModel = new GroundModel();
-            GroundGateway groundGateway = new GroundGatewayImp(groundModel);
+        //public void Awake()
+        //{
+        //    GroundModel groundModel = new GroundModel();
+        //    GroundGateway groundGateway = new GroundGatewayImp(groundModel);
             
 
-            HeroGateway heroGateway = new HeroGatewayImp(_heroService);
-            HeroDataAccess heroRepository = new HeroRepository(heroGateway);
+        //    HeroGateway heroGateway = new HeroGatewayImp(_heroService);
+        //    HeroDataAccess heroRepository = new HeroRepository(heroGateway);
 
-            HealthGateway healthGateway = new HealthGatewayImp(_healthService);
-            HealthDataAccess healthRepository = new HealthRepository(healthGateway);
+        //    HealthGateway healthGateway = new HealthGatewayImp(_healthService);
+        //    HealthDataAccess healthRepository = new HealthRepository(healthGateway);
 
-            WeaponGateway weaponGateway = new WeaponGatewayImp(_weaponService);
-            WeaponDataAccess weaponRepository = new WeaponRepository(weaponGateway);
+        //    WeaponGateway weaponGateway = new WeaponGatewayImp(_weaponService);
+        //    WeaponDataAccess weaponRepository = new WeaponRepository(weaponGateway);
 
-            InputModel inputModel = new InputModel();
+        //    InputModel inputModel = new InputModel();
 
-            GameStateController gameStateController = new GameStateController(inputModel);
+        //    GameStateController gameStateController = new GameStateController(inputModel);
 
-            _input.Configure(inputModel);
-            _heroInstaller.Configure(inputModel, groundGateway);
-            _menuInstaller.Configure(inputModel, weaponRepository, healthRepository);
+        //    _input.Configure(inputModel);
+        //    _heroInstaller.Configure(inputModel, groundGateway);
+        //    _menuInstaller.Configure(inputModel, weaponRepository, healthRepository);
 
-            _heroInstaller.Initialize();
-            _menuInstaller.Initialize();
+        //    _heroInstaller.Initialize();
+        //    _menuInstaller.Initialize();
 
-            _groundCollisionDetector.Configure(groundModel);
-        }
+        //    _groundCollisionDetector.Configure(groundModel);
+        //}
     }
 
 }
