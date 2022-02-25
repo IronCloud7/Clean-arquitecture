@@ -18,6 +18,9 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             _inputModel.PauseButtonPressed.Subscribe(PauseGame);
             _inputModel.QuitButtonPressed.Subscribe(quitGame);
             _inputModel.RestartButtonPressed.Subscribe(restartGame);
+
+            Current = GameState.PLAY;
+            Time.timeScale = 1;
         }
 
         public void StartGame()
