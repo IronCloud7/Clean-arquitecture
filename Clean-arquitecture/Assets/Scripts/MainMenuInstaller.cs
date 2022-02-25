@@ -17,7 +17,7 @@ namespace Assets.Scripts
 
         public void Awake()
         {
-            InitializeMenu();
+            //InitializeMenu();
             InitializeDataServices();
         }
 
