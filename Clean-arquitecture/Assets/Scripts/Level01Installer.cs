@@ -14,7 +14,7 @@ namespace Assets.Scripts
         [SerializeField] private Input _input;
         [SerializeField] private GroundCheck _groundCollisionDetector;
 
-        public void Awake()
+        public void Start()
         {
             InputModel inputModel = new InputModel();
             _input.Configure(inputModel);
