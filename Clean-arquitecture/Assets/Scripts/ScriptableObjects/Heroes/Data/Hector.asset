@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1ae7f5d6f136147a6bb0162764e4e4, type: 3}
+  m_Name: Hector
+  m_EditorClassIdentifier: 
+  _id: Hero
+  _name: "H\xE9ctor"
+  _position: {x: 0, y: 0, z: 0}
+  _weapon: 1
+  _health: 100
+  _attack: 5
+  _movementSpeed: 15
+  _runSpeed: 25
+  _jumpVelocity: 35
+  _secondsBetweenJumps: 1

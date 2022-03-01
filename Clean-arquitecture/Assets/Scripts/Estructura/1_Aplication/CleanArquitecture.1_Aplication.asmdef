@@ -1,7 +1,9 @@
 {
     "name": "CleanArquitecture.1_Aplication",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:1d36a33bb3305a240885c557185cc6c8"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
