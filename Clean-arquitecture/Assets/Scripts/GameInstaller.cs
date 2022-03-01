@@ -48,7 +48,7 @@ namespace Assets.Scripts
             ServiceLocator.Instance.RegisterService<GameplayHeroDataAccess>(gameplayHeroRepository);
 
             heroSpawner.Spawn("Hero");
-            //heroSpawner.Spawn("Enemy");
+            heroSpawner.Spawn("Enemy");
         }
     }
 

@@ -112,8 +112,7 @@ namespace Assets.Scripts.Estructura._3_Framework
                     _animator.SetBool("walking", false);
                     _animator.SetBool("running", true); 
                 }             
-           }
-                     
+           }                   
         }
 
         public void UpdateJump()
