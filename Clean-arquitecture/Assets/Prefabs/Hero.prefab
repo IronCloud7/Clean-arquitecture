@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 3807422368700356598}
   - component: {fileID: 3807422368700356597}
   - component: {fileID: 2155677570460041780}
-  - component: {fileID: 9060797456346774939}
   - component: {fileID: 3807422368700356602}
-  - component: {fileID: 7705511411846809902}
+  - component: {fileID: 5596134135564974576}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -154,19 +153,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9060797456346774939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807422368700356593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c80b7a7cfc9bd439dd51288ae6a6a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _heroView: {fileID: 3807422368700356602}
 --- !u!114 &3807422368700356602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,9 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f76622577681340a38c811ffbc9550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump: 20
-  _velocity: 3
---- !u!114 &7705511411846809902
+--- !u!114 &5596134135564974576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,6 +177,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85682d0e33db08641a4b357b4265d9d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 8

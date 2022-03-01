@@ -1,56 +1,30 @@
 using Assets.Scripts.Estructura._1_Aplication;
+using Assets.Scripts.Estructura._1_Aplication.UseCases;
 using Assets.Scripts.Estructura._2_Interface_Adapter;
 using Assets.Scripts.Estructura._3_Framework;
+using Assets.Scripts.Utils;
 using UnityEngine;
-using Input = Assets.Scripts.Estructura._3_Framework.Input;
 
 namespace Assets.Scripts
 {
     public class MenuInstaller : MonoBehaviour
     {
+        [SerializeField] private MainMenuView _mainMenuView;
 
-        private InputModel _inputModel;
-        private WeaponDataAccess _weaponRepository;
-        private HealthDataAccess _healthRepository;
-
-        private HealthRefresher _healthRefreshUseCase;
-        private Attacker _attackUseCase;
-
-        [SerializeField] private HealthView _healthView;
-        [SerializeField] private WeaponView _weaponView;
-
-        public void Configure(InputModel inputModel, WeaponDataAccess weaponRepository, HealthDataAccess healthRepository)
+        public void Awake()
         {
-            _inputModel = inputModel;
-            _weaponRepository = weaponRepository;
-            _healthRepository = healthRepository;
+            InitializeMenu();
         }
 
-
-        public void Initialize()
+        public void InitializeMenu()
         {
-            InitializeHealth();
-            InitializeWeapon();
+            StarterGame starterGame = new StartGameUseCase();
 
-            MenuController menuController = new MenuController(_inputModel, _attackUseCase, _healthRefreshUseCase);
-        }
+            MainMenuViewModel mainMenuViewModel = new MainMenuViewModel();
+            MainMenuController mainMenuController = new MainMenuController(mainMenuViewModel, starterGame);
 
-        public void InitializeHealth()
-        {
-            HealthViewModel _healthViewModel = new HealthViewModel();
-            HealthPresenter _healthPresenter = new HealthPresenter(_healthViewModel);
-
-            _healthRefreshUseCase = new HealthRefreshUseCase(_healthPresenter, _healthRepository);
-            _healthView.Configure(_healthViewModel);
-        }
-
-        public void InitializeWeapon()
-        {
-            WeaponViewModel weaponViewModel = new WeaponViewModel();
-            WeaponPresenter weaponPresenter = new WeaponPresenter(weaponViewModel);
-
-            _attackUseCase = new AttackUseCase(weaponPresenter, _weaponRepository);
-            _weaponView.Configure(weaponViewModel);
+            _mainMenuView.Configure(mainMenuViewModel);
         }
     }
-    }
+
+}
