@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1825764681009084974}
   - component: {fileID: 1775143542947661906}
   - component: {fileID: 6785613409539092286}
+  - component: {fileID: -9109103482428346857}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -99,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25, y: -0.4}
+  m_Offset: {x: -0.5, y: -0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.23, y: 5.08}
+  m_Size: {x: 2.5, y: 5}
   m_EdgeRadius: 0
 --- !u!50 &1825764681009084974
 Rigidbody2D:
@@ -162,5 +163,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21f76622577681340a38c811ffbc9550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-9109103482428346857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223680364022117149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85682d0e33db08641a4b357b4265d9d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
