@@ -2,10 +2,10 @@
 {
     public class MoveUseCase : Mover
     {
-        private GameplayHero _gameplayHero;
+        private Hero _gameplayHero;
         private UpdaterMove _updaterMove;
        
-        public MoveUseCase(GameplayHero gameplayHero, UpdaterMove updaterMove)
+        public MoveUseCase(Hero gameplayHero, UpdaterMove updaterMove)
         {
             _gameplayHero = gameplayHero;
             _updaterMove = updaterMove;    

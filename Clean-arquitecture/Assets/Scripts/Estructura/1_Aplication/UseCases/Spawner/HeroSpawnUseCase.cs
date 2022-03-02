@@ -4,9 +4,9 @@ using System.Numerics;
 public class HeroSpawnUseCase : HeroSpawner
 {
     private readonly HeroDataAccess _heroDataAccess;
-    private readonly GameplayHeroDataAccess _gameplayHeroDataAccess;
+    private readonly HeroInstanceAccess _gameplayHeroDataAccess;
 
-    public HeroSpawnUseCase(HeroDataAccess heroDataAccess, GameplayHeroDataAccess gameplayHeroDataAccess)
+    public HeroSpawnUseCase(HeroDataAccess heroDataAccess, HeroInstanceAccess gameplayHeroDataAccess)
     {
         _heroDataAccess = heroDataAccess;
         _gameplayHeroDataAccess = gameplayHeroDataAccess;

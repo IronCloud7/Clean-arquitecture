@@ -39,7 +39,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
         public ReactiveCommand Button7Pressed => _button7Pressed;
         public ReactiveCommand Button8Pressed => _button8Pressed;
 
-        public bool IsGround { get => _isGround; set => _isGround = value; }
+        public bool IsGrounded { get => _isGround; set => _isGround = value; }
         public float DeltaTime { get => _deltaTime; set => _deltaTime = value; }
 
 
@@ -62,6 +62,8 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
 
         public HeroViewModel(string id)
         {
+            _id = id;
+
             #region Inputs
             _hAxisPressed = new ReactiveProperty<float>(default);
             _vAxisPressed = new ReactiveProperty<float>(default);
@@ -75,6 +77,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             _button7Pressed = new ReactiveCommand();
             _button8Pressed = new ReactiveCommand();
             #endregion
+
             #region Outputs
             _movement = new ReactiveProperty<float>(default);
             _jumpVelocity = new ReactiveProperty<float>(default);

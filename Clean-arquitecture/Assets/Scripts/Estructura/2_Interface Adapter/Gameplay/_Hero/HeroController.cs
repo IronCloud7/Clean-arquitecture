@@ -34,7 +34,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
 
         public void OnButton1Pressed()
         {
-            _jumpUseCase.Jump(_heroViewModel.IsGround);
+            _jumpUseCase.Jump(_heroViewModel.IsGrounded);
         }
 
         public void OnButton2Pressed()
