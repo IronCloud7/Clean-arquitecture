@@ -8,47 +8,27 @@ namespace Assets.Scripts
 {
     public class GameInstaller : MonoBehaviour
     {
-        //[SerializeField] MenuInstaller _menuInstaller;
-
-        //[SerializeField] private UnityInputAdapter _input;
-        //[SerializeField] private GroundCheck _groundCollisionDetector;
-
-        [SerializeField] private HeroesConfiguration _herosConfiguration;
+        [SerializeField] private HeroPrefabCollection _heroPrefabCollection;
 
         public void Start()
         {
-            //GroundModel groundModel = new GroundModel();
-            //GroundGateway groundGateway = new GroundGatewayImp(groundModel);
-
-            //_groundCollisionDetector.Configure(groundModel);
-
             HeroDataAccess heroRepository = ServiceLocator.Instance.GetService<HeroDataAccess>();
             HealthDataAccess healthRepository = ServiceLocator.Instance.GetService<HealthDataAccess>();
             WeaponDataAccess weaponRepository = ServiceLocator.Instance.GetService<WeaponDataAccess>();
 
             //GameStateController gameStateController = new GameStateController(inputModel);
-     
-            //_heroInstaller.Configure(inputModel, groundGateway);
-            //_heroInstaller.Initialize();
 
-            //_menuInstaller.Configure(inputModel, weaponRepository, healthRepository);
-            //_menuInstaller.Initialize();
+            _heroPrefabCollection = Instantiate(_heroPrefabCollection);
+            HeroFactory heroFactory = new HeroFactory(_heroPrefabCollection);
+            HeroInstanceService heroInstanceService = new HeroUnityInstanceService(heroFactory);
+            HeroInstanceGateway heroInstanceGateway = new HeroInstanceGatewayImp(heroInstanceService);
+            HeroInstanceAccess heroInstanceRepository = new HeroInstanceRepository(heroInstanceGateway);
+            HeroSpawner heroSpawner = new HeroSpawnUseCase(heroRepository, heroInstanceRepository);
 
-            //EventDispatcherService eventDispatcherService = ServiceLocator.Instance.GetService<EventDispatcherService>();
-
-            //var heroPresentersContainer = new HeroPresentersContainer(eventDispatcherService);
-
-            _herosConfiguration = Instantiate(_herosConfiguration);
-            HeroFactory heroFactory = new HeroFactory(_herosConfiguration);
-            GameplayHeroDataService gameplayHeroDataService = new GameplayHeroUnityDataService(heroFactory);
-            GameplayHeroGateway gameplayHeroGatewayImp = new GameplayHeroGatewayImp(gameplayHeroDataService);
-            GameplayHeroDataAccess gameplayHeroRepository = new GameplayHeroRepository(gameplayHeroGatewayImp);
-            HeroSpawner heroSpawner = new HeroSpawnUseCase(heroRepository, gameplayHeroRepository);
-
-            ServiceLocator.Instance.RegisterService<GameplayHeroDataAccess>(gameplayHeroRepository);
+            ServiceLocator.Instance.RegisterService<HeroInstanceAccess>(heroInstanceRepository);
 
             heroSpawner.Spawn("Hero");
-            heroSpawner.Spawn("Enemy");
+            //heroSpawner.Spawn("Enemy");
         }
     }
 

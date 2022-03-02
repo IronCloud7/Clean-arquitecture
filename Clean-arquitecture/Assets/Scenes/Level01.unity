@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 170966207}
   - component: {fileID: 170966206}
   - component: {fileID: 170966205}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d559d1c9c7e5cf4ea7f524d8afd40b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _herosConfiguration: {fileID: 11400000, guid: ec810f360ad6cee44a419943d8bd33cf, type: 2}
+  _heroPrefabCollection: {fileID: 11400000, guid: ec810f360ad6cee44a419943d8bd33cf, type: 2}
 --- !u!4 &197512259
 Transform:
   m_ObjectHideFlags: 0
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 771546512}
   - component: {fileID: 771546511}
   - component: {fileID: 771546510}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cddcdb822bb6844fb985f35bc070bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroesData: {fileID: 11400000, guid: 3efe1e15167e1e245bc173747b1271d0, type: 2}
+  _heroesData: {fileID: 11400000, guid: cf1ad57181f3d0147bfa7bd0b74a6701, type: 2}
 --- !u!114 &1862789548
 MonoBehaviour:
   m_ObjectHideFlags: 0

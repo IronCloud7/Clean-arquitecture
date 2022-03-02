@@ -22,14 +22,14 @@ namespace Assets.Scripts
 
         public void InitializeDataServices()
         {
-            HeroGateway heroGateway = new HeroGatewayImp(_heroService);
-            HeroDataAccess heroRepository = new HeroRepository(heroGateway);
+            HeroDataGateway heroGateway = new HeroDataGatewayImp(_heroService);
+            HeroDataAccess heroRepository = new HeroDataRepository(heroGateway);
 
             HealthGateway healthGateway = new HealthGatewayImp(_healthService);
             HealthDataAccess healthRepository = new HealthRepository(healthGateway);
 
-            WeaponGateway weaponGateway = new WeaponGatewayImp(_weaponService);
-            WeaponDataAccess weaponRepository = new WeaponRepository(weaponGateway);
+            WeaponDataGateway weaponGateway = new WeaponDataGatewayImp(_weaponService);
+            WeaponDataAccess weaponRepository = new WeaponDataRepository(weaponGateway);
 
             ServiceLocator.Instance.RegisterService<HeroDataAccess>(heroRepository);
             ServiceLocator.Instance.RegisterService<HealthDataAccess>(healthRepository);

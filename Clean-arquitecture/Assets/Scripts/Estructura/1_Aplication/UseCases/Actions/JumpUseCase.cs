@@ -2,10 +2,10 @@
 {
     public class JumpUseCase : Jumper
     {
-        private GameplayHero _gameplayHero;
+        private Hero _gameplayHero;
         private UpdaterJump _updaterJump;
 
-        public JumpUseCase(GameplayHero gameplayHero, UpdaterJump updaterJump)
+        public JumpUseCase(Hero gameplayHero, UpdaterJump updaterJump)
         {
             _gameplayHero = gameplayHero;
             _updaterJump = updaterJump;           

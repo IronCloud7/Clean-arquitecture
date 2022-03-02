@@ -4,6 +4,6 @@ namespace Assets.Scripts.Estructura._3_Framework
 {
     public interface HeroDataService
     {
-        public HeroResult GetHero(string id);
+        public HeroRaw GetHero(string id);
     }
 }

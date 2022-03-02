@@ -2,10 +2,10 @@
 {
     public class AttackUseCase : Attacker
     {
-        private GameplayHero _gameplayHero;
+        private Hero _gameplayHero;
         private UpdaterAttack _updaterAttack;
 
-        public AttackUseCase(GameplayHero gameplayHero, UpdaterAttack updaterAttack)
+        public AttackUseCase(Hero gameplayHero, UpdaterAttack updaterAttack)
         {
             _gameplayHero = gameplayHero;
             _updaterAttack = updaterAttack;      

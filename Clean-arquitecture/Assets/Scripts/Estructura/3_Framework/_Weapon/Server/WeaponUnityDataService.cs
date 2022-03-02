@@ -5,18 +5,18 @@ namespace Assets.Scripts.Estructura._3_Framework
 {
     public class WeaponUnityDataService : MonoBehaviour, WeaponDataService
     {
-        [SerializeField] private WeaponsData _weaponsData;
+        [SerializeField] private WeaponUnityCollection _weaponsData;
 
         public void Awake()
         {
             _weaponsData = Instantiate(_weaponsData);
         }
 
-        public WeaponResult GetWeapon(string id)
+        public WeaponRaw GetWeapon(string id)
         {
             var weaponData = _weaponsData.GetWeaponById(id);
 
-            var weaponResult = new WeaponResult();
+            var weaponResult = new WeaponRaw();
             weaponResult.Id = weaponData.Id;
             weaponResult.Name = weaponData.Name;
             weaponResult.Damage = weaponData.Damage;

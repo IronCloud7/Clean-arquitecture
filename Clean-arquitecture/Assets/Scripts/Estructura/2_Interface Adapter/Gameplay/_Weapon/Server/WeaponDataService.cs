@@ -2,6 +2,6 @@
 {
     public interface WeaponDataService
     {
-        public WeaponResult GetWeapon(string id);
+        public WeaponRaw GetWeapon(string id);
     }
 }

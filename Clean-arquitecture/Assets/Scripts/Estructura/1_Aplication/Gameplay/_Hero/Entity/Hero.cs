@@ -1,42 +1,98 @@
+﻿using System;
 using System.Numerics;
 
 namespace Assets.Scripts.Estructura._1_Aplication
 {
     public class Hero
     {
-        private string _id;
-        private string _name;
-        private string _input;
-        private Vector3 _posicion;
-        private HeroAttributes _attributes;
+        private readonly int _instanceId;
+        private readonly HeroData _heroData;
+        private readonly WeaponData _weapon;
+        private int _maxHealth;
+        private int _currentHealth;
+        private Vector3 _position;
 
-        public Hero()
+        private long _lastAttackTime;
+        private long _lastJumpTime;
+        private float _secondsBetweenJumps;
+
+        public int InstanceId => _instanceId;
+        public HeroData HeroData => _heroData;
+        public Vector3 Position { get => _position; set => _position = value; }
+        public int CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
+   
+        public Hero(HeroData hero, int instanceId, Vector3 position)
         {
-            _attributes = new HeroAttributes();
+            _instanceId = instanceId;
+            _heroData = hero;
+            _position = position;
+            _weapon = new WeaponData(); //_hero.Attributes.Weapon;
+            _maxHealth = hero.Attributes.Health;
+            _currentHealth = _heroData.Attributes.Health;
+            _weapon.SecondsBetweenAttacks = 0.6f; 
+   
+            _lastAttackTime = 0;
+            _lastJumpTime = 0;      
         }
 
-        public string Id { get => _id; set => _id = value; }
-        public string Name { get => _name; set => _name = value; }
-        public string Input { get => _input; set => _input = value; }
-        public Vector3 Posicion { get => _posicion; set => _posicion = value; }
-        public HeroAttributes Attributes { get => _attributes; set => _attributes = value; }
-
-        public class HeroAttributes
+        public bool CanMove()
         {
-            private string _weapon;
-            private int _health;
-            private int _movementSpeed;
-            private int _runSpeed;
-            private int _jumpVelocity;
-            private float _secondsBetweenJumps;
+            return !IsAttacking();
+        }
 
-            public string Weapon { get => _weapon; set => _weapon = value; }
-            public int Health { get => _health; set => _health = value; }
-            public int MovementSpeed { get => _movementSpeed; set => _movementSpeed = value; }
-            public int JumpVelocity { get => _jumpVelocity; set => _jumpVelocity = value; }
-            public int RunSpeed { get => _runSpeed; set => _runSpeed = value; }
-            public float SecondsBetweenJumps { get => _secondsBetweenJumps; set => _secondsBetweenJumps = value; }
+        public bool CanAttack()
+        {
+            if (IsAttacking() /*|| IsJumping()*/)
+            {
+                return false;
+            }
+
+            return true;
+        }  
+
+        public bool CanJump()
+        {
+            if (IsAttacking() || IsJumping())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public float Move(float direction, float deltaTime, bool run)
+        {
+            if (run) return HeroData.Attributes.RunSpeed * deltaTime * direction;
+            return HeroData.Attributes.MovementSpeed * deltaTime * direction;
+        }
+
+        public void Attack()
+        {
+            _lastAttackTime = DateTime.Now.Ticks;
+        }
+
+        public int Jump()
+        {
+            _lastJumpTime = DateTime.Now.Ticks;
+
+            return HeroData.Attributes.JumpVelocity;
+        }
+
+        private bool IsAttacking()
+        {
+            return _lastAttackTime + TimeSpan.FromSeconds(_weapon.SecondsBetweenAttacks).Ticks > DateTime.Now.Ticks;
+        }
+
+        private bool IsJumping()
+        {
+            return _lastJumpTime + TimeSpan.FromSeconds(_heroData.Attributes.SecondsBetweenJumps).Ticks > DateTime.Now.Ticks;
+        }
+
+
+        public bool ReceiveDamage(Hero enemy)
+        {
+            CurrentHealth -= enemy._weapon.Damage;
+            return CurrentHealth <= 0;
         }
     }
 }
-

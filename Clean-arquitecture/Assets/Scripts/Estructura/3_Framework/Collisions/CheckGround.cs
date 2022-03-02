@@ -6,31 +6,16 @@ namespace Assets.Scripts.Estructura._3_Framework
 {
     public class CheckGround : MonoBehaviour
     {
-        private LayerMask _layer;
+        [SerializeField] private LayerMask _whatIsGround;
+        [SerializeField] private Transform _groundCheckPoint;
+        [SerializeField] private bool _isGrounded;
+        [SerializeField] private float _groundCheckRadius;
 
-        private bool _isGround;
-        public bool IsGround { get => _isGround; set => _isGround = value; }
+        public bool IsGrounded { get => _isGrounded; set => _isGrounded = value; }
 
-        public void Awake()
+        private void Update()
         {
-            _layer = LayerMask.GetMask("Ground");
+            _isGrounded = Physics2D.OverlapCircle(_groundCheckPoint.position, _groundCheckRadius, _whatIsGround);
         }
-
-        public void OnCollisionEnter2D(Collision2D collision)
-        {
-            if ((_layer.value & (1 << collision.gameObject.layer)) > 0)
-            {
-                IsGround = true;
-            }
-        }
-
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            if ((_layer.value & (1 << collision.gameObject.layer)) > 0)
-            {
-                IsGround = false;
-            }
-        }
-
     }
 }

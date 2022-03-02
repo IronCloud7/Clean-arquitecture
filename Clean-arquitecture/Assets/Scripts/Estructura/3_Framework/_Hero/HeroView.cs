@@ -66,7 +66,7 @@ namespace Assets.Scripts.Estructura._3_Framework
         }
         private void Collisions()
         {
-            _heroViewModel.IsGround = _groundCheck.IsGround;
+            _heroViewModel.IsGrounded = _groundCheck.IsGrounded;
         }
 
         public void UpdateMove()
