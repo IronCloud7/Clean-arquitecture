@@ -21,9 +21,9 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
         private readonly ReactiveCommand _button8Pressed;
 
         private bool _isGround;
-    
-        private float _deltaTime;
         private bool _isRunning;
+        private float _deltaTime;
+    
 
         #endregion
         #region Input Properties
@@ -55,9 +55,6 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
         public ReactiveProperty<float> JumpVelocity { get => _jumpVelocity; set => _jumpVelocity = value; }
         public ReactiveProperty<bool> DoAttack { get => _doAttack; set => _doAttack = value; }
         public bool IsRunning { get => _isRunning; set => _isRunning = value; }
-
-
-
         #endregion
 
         public HeroViewModel(string id)
@@ -84,8 +81,6 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             _doAttack = new ReactiveProperty<bool>(default);
             #endregion
         }
-
-
-    
     }
 }
+

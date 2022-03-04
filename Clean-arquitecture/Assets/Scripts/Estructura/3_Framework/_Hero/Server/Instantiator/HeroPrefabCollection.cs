@@ -23,12 +23,12 @@ namespace Assets.Scripts.Estructura._3_Framework
 
         public HeroView GetHeroById(string id)
         {
-            if (!_idToHero.TryGetValue(id.GetHashCode(), out var heroView))
+            if (!_idToHero.TryGetValue(id.GetHashCode(), out var hero))
             {
                 throw new ArgumentOutOfRangeException($"Hero with Id {id} does not exist");
             }
 
-            return heroView;
+            return hero;
         }
 
     }

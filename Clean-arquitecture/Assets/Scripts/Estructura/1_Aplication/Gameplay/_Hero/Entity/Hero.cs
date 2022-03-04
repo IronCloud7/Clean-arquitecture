@@ -7,34 +7,32 @@ namespace Assets.Scripts.Estructura._1_Aplication
     {
         private readonly int _instanceId;
         private readonly HeroData _heroData;
-        private readonly WeaponData _weapon;
-        private int _maxHealth;
-        private int _currentHealth;
         private Vector3 _position;
 
+        private Weapon _weapon;
+        private int _currentHealth;
+     
         private long _lastAttackTime;
         private long _lastJumpTime;
-        private float _secondsBetweenJumps;
 
         public int InstanceId => _instanceId;
         public HeroData HeroData => _heroData;
         public Vector3 Position { get => _position; set => _position = value; }
         public int CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
-   
-        public Hero(HeroData hero, int instanceId, Vector3 position)
-        {
+    
+        public Hero(HeroData heroData, int instanceId, Vector3 position)
+        {        
             _instanceId = instanceId;
-            _heroData = hero;
+            _heroData = heroData;
             _position = position;
-            _weapon = new WeaponData(); //_hero.Attributes.Weapon;
-            _maxHealth = hero.Attributes.Health;
+
             _currentHealth = _heroData.Attributes.Health;
-            _weapon.SecondsBetweenAttacks = 0.6f; 
-   
-            _lastAttackTime = 0;
-            _lastJumpTime = 0;      
         }
 
+        public void SetWeapon(Weapon weapon)
+        {
+            _weapon = weapon;
+        }
         public bool CanMove()
         {
             return !IsAttacking();
@@ -42,7 +40,7 @@ namespace Assets.Scripts.Estructura._1_Aplication
 
         public bool CanAttack()
         {
-            if (IsAttacking() /*|| IsJumping()*/)
+            if (IsAttacking())
             {
                 return false;
             }
@@ -80,7 +78,7 @@ namespace Assets.Scripts.Estructura._1_Aplication
 
         private bool IsAttacking()
         {
-            return _lastAttackTime + TimeSpan.FromSeconds(_weapon.SecondsBetweenAttacks).Ticks > DateTime.Now.Ticks;
+            return _lastAttackTime + TimeSpan.FromSeconds(_weapon.WeaponData.Attributes.SecondsBetweenAttacks).Ticks > DateTime.Now.Ticks;
         }
 
         private bool IsJumping()
@@ -91,7 +89,7 @@ namespace Assets.Scripts.Estructura._1_Aplication
 
         public bool ReceiveDamage(Hero enemy)
         {
-            CurrentHealth -= enemy._weapon.Damage;
+            CurrentHealth -= enemy._weapon.WeaponData.Attributes.Damage;
             return CurrentHealth <= 0;
         }
     }

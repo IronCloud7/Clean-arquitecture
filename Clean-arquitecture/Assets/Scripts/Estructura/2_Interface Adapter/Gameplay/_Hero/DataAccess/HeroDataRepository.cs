@@ -28,7 +28,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             heroData = new HeroData();
             heroData.Id = heroDto.Id;
             heroData.Name = heroDto.Name;
-            heroData.Posicion = heroDto.Posicion;
+            heroData.Attributes.WeaponSpawnerReference = heroDto.WeaponSpawnerReference;
             heroData.Attributes.Weapon = heroDto.Weapon;
             heroData.Attributes.Health = heroDto.Health;
             heroData.Attributes.MovementSpeed = heroDto.MovementSpeed;

@@ -14,17 +14,17 @@ namespace Assets.Scripts.Estructura._3_Framework
 
         public WeaponRaw GetWeapon(string id)
         {
-            var weaponData = _weaponsData.GetWeaponById(id);
+            var weaponUnity = _weaponsData.GetWeaponById(id);
 
-            var weaponResult = new WeaponRaw();
-            weaponResult.Id = weaponData.Id;
-            weaponResult.Name = weaponData.Name;
-            weaponResult.Damage = weaponData.Damage;
-            weaponResult.AttackRange = weaponData.AttackRange;
-            weaponResult.SecondsBetweenAttacks = weaponData.SecondsBetweenAttacks;
+            var weaponRaw = new WeaponRaw();
+            weaponRaw.Id = weaponUnity.Id;
+            weaponRaw.Name = weaponUnity.Name;
+            weaponRaw.Damage = weaponUnity.Damage;
+            weaponRaw.AttackRange = weaponUnity.AttackRange;
+            weaponRaw.SecondsBetweenAttacks = weaponUnity.SecondsBetweenAttacks;
 
 
-            return weaponResult;
+            return weaponRaw;
         }
     }
 }

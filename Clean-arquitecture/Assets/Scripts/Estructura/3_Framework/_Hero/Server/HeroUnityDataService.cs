@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.Estructura._2_Interface_Adapter;
+using Assets.Scripts.Utils;
 using UnityEngine;
+using Vector3 = System.Numerics.Vector3;
 
 namespace Assets.Scripts.Estructura._3_Framework
 {
@@ -14,20 +16,20 @@ namespace Assets.Scripts.Estructura._3_Framework
 
         public HeroRaw GetHero(string id)
         {
-            var heroData = _heroesData.GetHeroById(id);
+            var heroUnity = _heroesData.GetHeroById(id);
 
-            var heroResult = new HeroRaw();
-            heroResult.Id = heroData.Id;
-            heroResult.Name = heroData.Name;
-            heroResult.Posicion = new System.Numerics.Vector3(heroData.Position.x, heroData.Position.y, heroData.Position.z);
-            heroResult.Weapon = heroData.Weapon;
-            heroResult.Health = heroData.Health;
-            heroResult.MovementSpeed = heroData.MovementSpeed;
-            heroResult.RunSpeed = heroData.RunSpeed;
-            heroResult.JumpVelocity = heroData.JumpVelocity;
-            heroResult.SecondsBetweenJumps = heroData.SecondsBetweenJumps;
+            var heroRaw = new HeroRaw();
+            heroRaw.Id = heroUnity.Id;
+            heroRaw.Name = heroUnity.Name;
+            heroRaw.Weapon = heroUnity.Weapon;
+            heroRaw.WeaponSpawnerReference = heroUnity.WeaponSpawnerReference.ToNumerics();
+            heroRaw.Health = heroUnity.Health;
+            heroRaw.MovementSpeed = heroUnity.MovementSpeed;
+            heroRaw.RunSpeed = heroUnity.RunSpeed;
+            heroRaw.JumpVelocity = heroUnity.JumpVelocity;
+            heroRaw.SecondsBetweenJumps = heroUnity.SecondsBetweenJumps;
 
-            return heroResult;
+            return heroRaw;
         }
     }
 }

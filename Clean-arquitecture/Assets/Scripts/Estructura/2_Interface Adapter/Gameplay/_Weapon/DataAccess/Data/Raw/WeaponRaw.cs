@@ -3,11 +3,11 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
 {
     public class WeaponRaw
     {
-         private string _id;
-         private string _name;
-         private int _damage;
-         private float attackRange;
-         private float secondsBetweenAttacks;
+        private string _id;
+        private string _name;
+        private int _damage;
+        private float attackRange;
+        private float secondsBetweenAttacks;
         public string Id { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
         public int Damage { get => _damage; set => _damage = value; }

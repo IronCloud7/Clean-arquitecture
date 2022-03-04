@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Estructura._2_Interface_Adapter;
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 namespace Assets.Scripts.Estructura._3_Framework
@@ -16,9 +17,15 @@ namespace Assets.Scripts.Estructura._3_Framework
         public HeroView Create(HeroConfiguration heroConfiguration)
         {
             var prefab = _heroPrefabCollection.GetHeroById(heroConfiguration.Id);
-            var SpawnPosition = new Vector3(heroConfiguration.Position.X, heroConfiguration.Position.Y, heroConfiguration.Position.Z);
+            var position = heroConfiguration.Position.ToUnity();
 
-            return Object.Instantiate(prefab, SpawnPosition, Quaternion.identity);
+            HeroBuilder heroBuilder = new HeroBuilder();
+            heroBuilder.WithID(heroConfiguration.Id);
+            heroBuilder.WithPrefab(prefab);
+            heroBuilder.WithPosition(position);
+            heroBuilder.WithRotation(Quaternion.identity);
+
+            return heroBuilder.Build();
         }
     }
 }

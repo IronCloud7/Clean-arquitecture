@@ -4,18 +4,21 @@ using System.Numerics;
 public class HeroSpawnUseCase : HeroSpawner
 {
     private readonly HeroDataAccess _heroDataAccess;
-    private readonly HeroInstanceAccess _gameplayHeroDataAccess;
+    private readonly WeaponDataAccess _weaponDataAccess;
+    private readonly HeroInstanceAccess _heroInstanceAccess;
 
-    public HeroSpawnUseCase(HeroDataAccess heroDataAccess, HeroInstanceAccess gameplayHeroDataAccess)
+    public HeroSpawnUseCase(HeroDataAccess heroDataAccess, WeaponDataAccess weaponDataAccess, HeroInstanceAccess heroInstanceAccess)
     {
         _heroDataAccess = heroDataAccess;
-        _gameplayHeroDataAccess = gameplayHeroDataAccess;
+        _weaponDataAccess = weaponDataAccess;
+        _heroInstanceAccess = heroInstanceAccess;
     }
 
     public void Spawn(string id,  Vector3 posicion = default)
     {
-       var hero = _heroDataAccess.GetHero(id);
+        var hero = _heroDataAccess.GetHero(id);
+        var weapon = _weaponDataAccess.GetWeapon(hero.Attributes.Weapon);
 
-        _gameplayHeroDataAccess.Add(hero, posicion);
+        _heroInstanceAccess.Add(hero, weapon, posicion);
     }
 }

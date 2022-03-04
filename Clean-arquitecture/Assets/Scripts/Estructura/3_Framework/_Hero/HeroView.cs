@@ -19,10 +19,11 @@ namespace Assets.Scripts.Estructura._3_Framework
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _groundCheck = GetComponent<CheckGround>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();   
             _input = new UnityInputAdapter();
+            _groundCheck = GetComponent<CheckGround>();
         }
+
         public void Configure(HeroViewModel heroViewModel)
         {
             _heroViewModel = heroViewModel;         
@@ -60,6 +61,7 @@ namespace Assets.Scripts.Estructura._3_Framework
             _heroViewModel.HAxisPressed.Value = _input.HAxis();
             _heroViewModel.VAxisPressed.Value = _input.VAxis();
         }
+
         private void Timers()
         {
             _heroViewModel.DeltaTime = Time.deltaTime;        
@@ -127,7 +129,7 @@ namespace Assets.Scripts.Estructura._3_Framework
         {
             ResetAnimations();
 
-            if (_heroViewModel.DoAttack.Value)
+            if (_heroViewModel.DoAttack.Value)            
                 _animator.SetTrigger("attack");
         }
 
