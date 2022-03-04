@@ -4,7 +4,7 @@ using System.Numerics;
 
 public interface HeroInstanceAccess
 {
-    void Add(HeroData hero, Vector3 posicion);
+    void Add(HeroData hero, WeaponData weaponData, Vector3 posicion);
     Hero Get(int InstanceId);
     void Remove(int InstanceId);
     IReadOnlyList<Hero> GetAll();

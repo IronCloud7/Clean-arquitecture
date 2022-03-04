@@ -9,20 +9,24 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
     public class HeroInstanceRepository : HeroInstanceAccess
     {
         private readonly HeroInstanceGateway _heroInstanceGateway;
+        private readonly WeaponInstanceGateway _weaponInstanceGateway;
         private readonly Dictionary<int, Hero> _heroes;
 
-        public HeroInstanceRepository(HeroInstanceGateway heroInstanceGateway)
+        public HeroInstanceRepository(HeroInstanceGateway heroInstanceGateway, WeaponInstanceGateway weaponInstanceGateway)
         {
             _heroInstanceGateway = heroInstanceGateway;
+            _weaponInstanceGateway = weaponInstanceGateway;
             _heroes = new Dictionary<int, Hero>();
         }
 
-        public void Add(HeroData heroData, Vector3 posicion = default)
-        {       
-            var spawnPosition = posicion != default ? posicion : heroData.Posicion;
+        public void Add(HeroData heroData, WeaponData weaponData, Vector3 posicion)
+        {
+            var spawnPosition = posicion;
             var heroConfiguration = new HeroConfiguration(heroData, spawnPosition);
-       
-            var hero = _heroInstanceGateway.GetInstance(heroConfiguration);
+            var weaponConfiguration = new WeaponConfiguration(weaponData, heroData.Attributes.WeaponSpawnerReference);
+
+
+            var hero = _heroInstanceGateway.GetInstance(heroConfiguration, weaponConfiguration);
 
             _heroes.Add(hero.InstanceId, hero);
         }

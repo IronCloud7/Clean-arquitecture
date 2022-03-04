@@ -29,9 +29,9 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             weaponData = new WeaponData();
             weaponData.Id = weaponDto.Id;
             weaponData.Name = weaponDto.Name;
-            weaponData.Damage = weaponDto.Damage;
-            weaponData.AttackRange = weaponDto.AttackRange;
-            weaponData.SecondsBetweenAttacks = weaponDto.SecondsBetweenAttacks;
+            weaponData.Attributes.Damage = weaponDto.Damage;
+            weaponData.Attributes.AttackRange = weaponDto.AttackRange;
+            weaponData.Attributes.SecondsBetweenAttacks = weaponDto.SecondsBetweenAttacks;
 
             _weaponsData.Add(weaponData.Id, weaponData);
 

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Enemy
   _name: Brian
-  _posicion: {x: 5, y: 5, z: 0}
-  _weapon: 2
+  _weapon: Gun
+  _weaponSpawnerReference: {x: 0, y: 0, z: 0}
   _health: 100
-  _attack: 2
   _movementSpeed: 3
-  _jumpForce: 5
+  _runSpeed: 0
+  _jumpVelocity: 0
+  _secondsBetweenJumps: 0

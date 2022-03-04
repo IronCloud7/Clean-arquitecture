@@ -2,7 +2,8 @@
     "name": "CleanArquitecture.3_Framework",
     "rootNamespace": "",
     "references": [
-        "GUID:c322da5a8e937054e95b81fb5e63b889"
+        "GUID:c322da5a8e937054e95b81fb5e63b889",
+        "GUID:1d36a33bb3305a240885c557185cc6c8"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

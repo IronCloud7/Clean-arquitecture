@@ -4,7 +4,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
 {
     public interface HeroInstanceGateway
     {
-        Hero GetInstance(HeroConfiguration heroConfiguration);
+        Hero GetInstance(HeroConfiguration heroConfiguration, WeaponConfiguration weaponConfiguration);
     }
 }
 

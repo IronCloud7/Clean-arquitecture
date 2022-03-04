@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c254e0244dcabb04a9d5112166fc0508, type: 3}
-  m_Name: Sword
+  m_Name: Excalibour
   m_EditorClassIdentifier: 
-  _id: 1
-  _name: Sword
+  _id: Sword
+  _name: Excalibour
   _damage: 10
-  attackRange: 5
-  secondsBetweenAttacks: 1
+  _attackRange: 2
+  _secondsBetweenAttacks: 1
