@@ -39,7 +39,7 @@ namespace Assets.Scripts.Estructura._3_Framework
             _heroViewModel.DoAttack.Unsubscribe(UpdateAttack);
         }
 
-        public void Update()
+        private void Update()
         {
             Timers();
             Collisions();
@@ -64,14 +64,14 @@ namespace Assets.Scripts.Estructura._3_Framework
 
         private void Timers()
         {
-            _heroViewModel.DeltaTime = Time.deltaTime;        
+            _heroViewModel.DeltaTime = Time.deltaTime;  
         }
         private void Collisions()
         {
             _heroViewModel.IsGrounded = _groundCheck.IsGrounded;
         }
 
-        public void UpdateMove()
+        private void UpdateMove()
         {
             var move = new Vector3(_heroViewModel.Movement.Value , default, default);
 
@@ -86,17 +86,16 @@ namespace Assets.Scripts.Estructura._3_Framework
             var direction = _heroViewModel.HAxisPressed.Value;
             if (direction > 0)
             {
-                _spriteRenderer.flipX = false;
+                transform.localScale = new Vector3(1, 1, 1);
             }
             else if(direction < 0)
             {
-                _spriteRenderer.flipX = true;
+                transform.localScale = new Vector3(-1, 1, 1);     
             }
         }
+
         private void Run()
         {
-     
-
             var direction = _heroViewModel.HAxisPressed.Value;
             if (direction == 0)
             {
@@ -117,7 +116,7 @@ namespace Assets.Scripts.Estructura._3_Framework
            }                   
         }
 
-        public void UpdateJump()
+        private void UpdateJump()
         {
             ResetAnimations();
 
@@ -125,7 +124,7 @@ namespace Assets.Scripts.Estructura._3_Framework
             _rigidbody.velocity = Vector3.up * _heroViewModel.JumpVelocity.Value;
         }
 
-        public void UpdateAttack()
+        private void UpdateAttack()
         {
             ResetAnimations();
 
@@ -133,7 +132,7 @@ namespace Assets.Scripts.Estructura._3_Framework
                 _animator.SetTrigger("attack");
         }
 
-        public void ResetAnimations()
+        private void ResetAnimations()
         {
             _animator.SetBool("walking", false);
             _animator.SetBool("running", false);

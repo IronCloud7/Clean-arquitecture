@@ -34,13 +34,13 @@ namespace Assets.Scripts
 
 
             ServiceLocator.Instance.RegisterService<HeroInstanceAccess>(heroInstanceRepository);
-            ServiceLocator.Instance.RegisterService<HeroSpawner>(heroSpawner);
-
             ServiceLocator.Instance.RegisterService<WeaponInstanceAccess>(weaponInstanceRepository);
+
+            ServiceLocator.Instance.RegisterService<HeroSpawner>(heroSpawner);
             ServiceLocator.Instance.RegisterService<WeaponSpawner>(weaponSpawner);
 
             heroSpawner.Spawn("Hero");
-            heroSpawner.Spawn("Enemy");
+            //heroSpawner.Spawn("Enemy");
         }
     }
 

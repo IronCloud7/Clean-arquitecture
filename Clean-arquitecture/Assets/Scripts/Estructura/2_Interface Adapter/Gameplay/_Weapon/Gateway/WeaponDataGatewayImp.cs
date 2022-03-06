@@ -18,6 +18,7 @@
             weaponDto.Name = weaponRaw.Name;
             weaponDto.Damage = weaponRaw.Damage;
             weaponDto.AttackRange = weaponRaw.AttackRange;
+            weaponDto.PenetrationRange = weaponRaw.PenetrationRange;
             weaponDto.SecondsBetweenAttacks = weaponRaw.SecondsBetweenAttacks;
 
             return weaponDto;

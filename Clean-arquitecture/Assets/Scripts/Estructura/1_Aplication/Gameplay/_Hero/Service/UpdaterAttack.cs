@@ -2,6 +2,6 @@
 {
     public interface UpdaterAttack
     {
-        public void UpdateAttack(bool doAttack);
+        public void UpdateAttack();
     }
 }

@@ -25,7 +25,6 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             var heroConfiguration = new HeroConfiguration(heroData, spawnPosition);
             var weaponConfiguration = new WeaponConfiguration(weaponData, heroData.Attributes.WeaponSpawnerReference);
 
-
             var hero = _heroInstanceGateway.GetInstance(heroConfiguration, weaponConfiguration);
 
             _heroes.Add(hero.InstanceId, hero);

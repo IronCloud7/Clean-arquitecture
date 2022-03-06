@@ -97,4 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  _impact: {fileID: 4576077224619545960, guid: 56e10ce356c98194d901eab4890487c5, type: 3}
