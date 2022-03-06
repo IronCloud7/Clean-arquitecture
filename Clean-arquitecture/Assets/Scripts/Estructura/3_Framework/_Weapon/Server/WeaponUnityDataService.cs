@@ -21,6 +21,7 @@ namespace Assets.Scripts.Estructura._3_Framework
             weaponRaw.Name = weaponUnity.Name;
             weaponRaw.Damage = weaponUnity.Damage;
             weaponRaw.AttackRange = weaponUnity.AttackRange;
+            weaponRaw.PenetrationRange = weaponUnity.PenetrationRange;
             weaponRaw.SecondsBetweenAttacks = weaponUnity.SecondsBetweenAttacks;
 
 

@@ -11,9 +11,9 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             _heroViewModel = heroViewModel;
         }
 
-        public void UpdateAttack(bool doAttack)
+        public void UpdateAttack()
         {
-            _heroViewModel.DoAttack.Value = doAttack;
+            _heroViewModel.DoAttack.Value = true;
         }
 
         public void UpdateJump(float velocity)

@@ -15,5 +15,6 @@ MonoBehaviour:
   _id: Gun
   _name: Ametralladora
   _damage: 5
-  _attackRange: 5
+  _attackRange: 40
+  _penetrationRange: 3
   _secondsBetweenAttacks: 0.25

@@ -6,11 +6,22 @@ namespace Assets.Scripts.Estructura._3_Framework
 {
     public abstract class WeaponView : MonoBehaviour
     {
-        protected WeaponViewModel _modelView;
+        [SerializeField] public LayerMask _whatIsEnemy;
+        [SerializeField] public ParticleSystem _impact;
 
-        public void Configure(WeaponViewModel modelView)
+        protected WeaponViewModel _weaponViewModel;
+
+        public void Configure(WeaponViewModel weaponViewModel)
         {
-            _modelView = modelView;
+            _weaponViewModel = weaponViewModel;
+            _weaponViewModel.DoAttack.Subscribe(UpdateAttack);
+        }
+
+        protected abstract void UpdateAttack();
+
+        private void OnDestroy()
+        {
+            _weaponViewModel.DoAttack.Unsubscribe(UpdateAttack);
         }
     }
 }

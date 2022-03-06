@@ -4,11 +4,13 @@
     {
         private Hero _gameplayHero;
         private UpdaterAttack _updaterAttack;
+        private UpdaterAttack _updaterCollision;
 
-        public AttackUseCase(Hero gameplayHero, UpdaterAttack updaterAttack)
+        public AttackUseCase(Hero gameplayHero, UpdaterAttack updaterAttack, UpdaterAttack updaterCollision)
         {
             _gameplayHero = gameplayHero;
-            _updaterAttack = updaterAttack;      
+            _updaterAttack = updaterAttack;
+            _updaterCollision = updaterCollision;
         }
 
         public void Attack()
@@ -17,7 +19,8 @@
             {
                 _gameplayHero.Attack();
 
-                _updaterAttack.UpdateAttack(true);
+                _updaterAttack.UpdateAttack();
+                _updaterCollision.UpdateAttack();
             }
          
         }

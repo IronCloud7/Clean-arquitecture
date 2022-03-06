@@ -14,7 +14,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
 
         public Hero GetInstance(HeroConfiguration heroConfiguration, WeaponConfiguration weaponConfiguration)
         {
-            var heroViewModel = new HeroViewModel(heroConfiguration.Id);
+            var heroViewModel = new HeroViewModel(heroConfiguration);
             var heroPresenter = new HeroPresenter(heroViewModel);
 
             var weaponViewModel = new WeaponViewModel(weaponConfiguration);
@@ -31,7 +31,7 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
 
             var moveUseCase = new MoveUseCase(hero, heroPresenter);
             var jumpUseCase = new JumpUseCase(hero, heroPresenter);
-            var attackUseCase = new AttackUseCase(hero, heroPresenter);
+            var attackUseCase = new AttackUseCase(hero, heroPresenter, weaponPresenter);
             var heroController = new HeroController(heroViewModel, moveUseCase, jumpUseCase, attackUseCase);
              
             return hero;

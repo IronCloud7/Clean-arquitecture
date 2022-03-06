@@ -1,4 +1,5 @@
 using Assets.Scripts.Estructura._2_Interface_Adapter;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,37 +7,49 @@ namespace Assets.Scripts.Estructura._3_Framework
 {
     public class DistanceWeaponView : WeaponView
     {
-        [SerializeField] private LayerMask _whatIsEnemy;
+        private RaycastHit2D[] _raycastHits;
+        private Transform _transform;
 
-        private RaycastHit2D[] _checkedEnemies;
-        private SpriteRenderer atacante;
-
-        public RaycastHit2D[] CheckedEnemies { get => _checkedEnemies; set => _checkedEnemies = value; }
-
-        private void Start()
+        private void Awake()
         {
-            atacante = transform.parent.GetComponent<SpriteRenderer>();
-        }
-
-        private void Update()
-        {
-            Vector3 direction = atacante.flipX ? -transform.right : transform.right;
-
-            _checkedEnemies = Physics2D.RaycastAll(transform.position, direction, _modelView.AttackRange, _whatIsEnemy);
-
-            Debug.Log(_checkedEnemies.Length.ToString());
-            foreach (RaycastHit2D enemy in _checkedEnemies)
-            {
-                Debug.Log(enemy.collider.name);
-            }
+            _transform = transform;
         }
 
         private void OnDrawGizmosSelected()
         {
-            if (transform.position == null) return;
+            if (_transform.position == null) return;
 
-            Vector3 direction = atacante.flipX ? -transform.right : transform.right;
-            Gizmos.DrawLine(transform.position, transform.position + (direction * _modelView.AttackRange));
+            var direction = _transform.parent.localScale.x == 1 ? _transform.right : -_transform.right;
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(_transform.position, direction * _weaponViewModel.AttackRange);    
+        }
+
+        protected override void UpdateAttack()
+        {
+            _weaponViewModel.Collisions.Clear();
+
+            var direction = _transform.parent.localScale.x == 1 ? _transform.right : -_transform.right;
+
+            _raycastHits = Physics2D.RaycastAll(_transform.position, direction, _weaponViewModel.AttackRange);
+
+            int hitEffects = 0;
+            foreach (RaycastHit2D hit in _raycastHits)
+            {
+                if (hit.collider == null) continue;
+
+                if (hitEffects >= _weaponViewModel.PenetrationRange)
+                    break;
+
+                if (hit.collider.gameObject.layer.Equals(_whatIsEnemy))
+                {
+                    _weaponViewModel.Collisions.Enqueue(hit.collider.gameObject.GetInstanceID());
+                }
+
+                Instantiate(_impact, hit.transform.position, Quaternion.identity);
+
+                hitEffects++;
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
 namespace Assets.Scripts.Estructura._2_Interface_Adapter
 {
 
-    public class WeaponPresenter : UpdaterDamage
+    public class WeaponPresenter : UpdaterAttack
     {
         private readonly WeaponViewModel _weaponViewModel;
 
@@ -12,9 +12,9 @@ namespace Assets.Scripts.Estructura._2_Interface_Adapter
             _weaponViewModel = weaponViewModel;
         }
 
-        public void UpdateDamage(WeaponOutputData outputData)
+        public void UpdateAttack()
         {
-
+            _weaponViewModel.DoAttack.Value = true;
         }
     }
 }

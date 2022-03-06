@@ -15,5 +15,6 @@ MonoBehaviour:
   _id: Sword
   _name: Excalibour
   _damage: 10
-  _attackRange: 2
+  _attackRange: 2.5
+  _penetrationRange: 2
   _secondsBetweenAttacks: 1

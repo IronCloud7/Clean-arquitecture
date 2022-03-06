@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Hero
   _name: "H\xE9ctor"
-  _weapon: Sword
-  _weaponSpawnerReference: {x: 0, y: 0, z: 0}
+  _weapon: Gun
+  _weaponSpawnerReference: {x: 0.8, y: -1.6, z: 0}
   _health: 100
   _movementSpeed: 15
   _runSpeed: 25
